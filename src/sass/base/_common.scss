@@ -1,3 +1,11 @@
-body p {
+body {
   font-family: 'Roboto Medium', sans-serif;
+  font-size: 12px;
+  background-color: --bg-color-white;
+  color: --text-color-black;
+  line-height: 1.33;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
