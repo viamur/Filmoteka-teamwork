@@ -10,11 +10,10 @@
 
   @include mq(tab) {
     width: 768px;
-    padding: 0 40px;
+    padding: 0 32px;
   }
 
   @include mq(desk) {
-    width: 1368px;
-    padding: 0 26px;
+    width: 1280;
   }
 }

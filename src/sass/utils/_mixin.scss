@@ -1,7 +1,7 @@
 @mixin mq($range) {
   $mobile: 480px;
   $tablet: 768px;
-  $decktop: 1366px;
+  $decktop: 1280px;
 
   @if $range ==mob {
     @media (min-width: $mobile) {
