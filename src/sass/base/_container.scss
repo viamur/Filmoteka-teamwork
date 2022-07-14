@@ -1,0 +1,23 @@
+.container {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  max-width: 100%;
+
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include mq(mob) {
+    width: 480px;
+  }
+
+  @include mq(tab) {
+    width: 768px;
+    padding: 0 40px;
+  }
+
+  @include mq(desk) {
+    width: 1368px;
+    padding: 0 26px;
+  }
+}
