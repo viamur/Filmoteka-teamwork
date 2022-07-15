@@ -43,7 +43,7 @@ export class ApiFetchId {
   async trandFetch() {
     try {
       const respons = await axios.get(
-        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&per_page=${this.page}`
+        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${this.page}`
       );
       this.totalPages = respons.data.total_pages;
       return respons.data.results;
