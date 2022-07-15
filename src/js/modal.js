@@ -1,13 +1,9 @@
 import { ApiFetchId } from './api-fetch-id';
 import makeModal from '../partials/hbs/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
+import makeGallery from '../partials/hbs/search-film-card.hbs';
+import { workLocStorage } from './local-storage';
 
-const fetchId = new ApiFetchId();
-const list = document.querySelector('.library__list');
-
-const onOpenModal = e => {
-  e.preventDefault();
-  console.log(e.target.closest('a'));
-};
-
-list.addEventListener('click', onOpenModal);
+// workLocStorage.addUserWatched(507086);
+// workLocStorage.setUserLocationPage(workLocStorage.VALUE_WATCHED);
+// console.log(workLocStorage.getUserWatched());

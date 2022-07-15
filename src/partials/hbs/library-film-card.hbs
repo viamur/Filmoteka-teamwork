@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='library__item movie card-item' id=''>
+  <li class='library__item movie card-item' id='{{this.id}}'>
     <a href='#' class='movie__link'>
       <img
         class='movie__img'
@@ -7,7 +7,7 @@
         alt='{{this.titel}}'
       />
 
-      <h3 class='movie__name'>{{this.titel}}</h3>
+      <h3 class='movie__name'>{{this.title}}</h3>
       <div class='movie__tag'>
         <p class='movie__category'>{{#each genres}}
             {{#unless @last}} {{this.name}}, {{/unless}}
