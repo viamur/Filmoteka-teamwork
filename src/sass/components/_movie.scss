@@ -1,0 +1,135 @@
+main {
+  /* Согласовать */
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-bg-color);
+}
+
+.library {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--main-secion-color);
+  @include mq(mob-only) {
+    width: 480px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    --card-colum: 0;
+    --card-item: 1;
+    --gap-left: 0;
+    --gap-top: 20px;
+
+    @include mq(tab) {
+      flex-direction: row;
+      --card-colum: 1;
+      --card-item: 2;
+      --gap-left: 32px;
+      --gap-top: 32px;
+    }
+    @include mq(desk) {
+      --card-colum: 2;
+      --card-item: 3;
+      --gap-left: 16px;
+      --gap-top: 32px;
+    }
+    @include mq(mob-only) {
+      display: flex;
+      align-content: center;
+    }
+  }
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+
+  @include mq(tab) {
+    max-width: 336px;
+    max-height: 495px;
+  }
+  @include mq(desk) {
+    max-width: 395px;
+    max-height: 634px;
+  }
+  &__link {
+  }
+
+  &__img {
+    width: 100%;
+    max-height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    @include mq(tab) {
+      max-height: 455px;
+      margin-bottom: 8px;
+    }
+    @include mq(desk) {
+      max-height: 574px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__name {
+    @include mq(no-desk) {
+      font-size: 12px;
+      line-height: 1.33;
+    }
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__tag {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    height: 16px;
+    width: 100%;
+    @include mq(desk) {
+      height: 24px;
+    }
+  }
+
+  &__category {
+    font-size: 12px;
+    line-height: 1.17;
+    font-weight: 500;
+    @include mq(tab) {
+      line-height: 1.2;
+    }
+    @include mq(desk) {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    color: var(--accent-color-text);
+  }
+  &__rate {
+    @include mq(no-desk) {
+      width: 36p;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 100%;
+    margin-left: 8px;
+    border-radius: 5px;
+
+    font-size: 12px;
+    line-height: 1.17;
+
+    color: var(--text-color-white);
+    background-color: var(--accent-color-text);
+    @include mq(desk) {
+      height: 20px;
+    }
+  }
+}
