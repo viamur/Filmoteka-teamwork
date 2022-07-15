@@ -44,7 +44,7 @@
 
       text-transform: uppercase;
       line-height: 1.33;
-      padding: 3px 12px;
+      padding: 3px 10px;
       @include mq(tab) {
         width: 125px;
       }
@@ -58,7 +58,9 @@
       margin-right: 15px;
       transition: all var(--transition);
     }
-    &--watched.active {
+    &--watched.active,
+    &--watched:hover,
+    &--watched:focus {
       background-color: var(--bg-color-white);
       border: 1px solid var(--text-color-black);
       color: var(--text-color-black);
@@ -69,7 +71,9 @@
       border: 1px solid var(--text-color-black);
       transition: all var(--transition);
     }
-    &--queue.active {
+    &--queue.active,
+    &--queue:hover,
+    &--queue:focus {
       background-color: var(--btn-bg-color);
       color: var(--bg-color-white);
       border: none;
