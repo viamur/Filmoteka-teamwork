@@ -12,7 +12,7 @@
               <li class="nav__item active">
                 <button class="nav__btn js-nav-btn" type="button">HOME</button>
             </li>
-            <li class="nav__item">
+            <li class="nav__item active">
                 <button class="nav__btn js-nav-btn" type="button">MY LIBRARY</button>
             </li>
           </ul>
@@ -26,19 +26,19 @@
         placeholder="Movie search"
       />
       <button class="search__btn js-search-btn" type="submit">
-        <svg class="search__icon" width="20" height="20">
+        <svg class="search__icon" width="12" height="12">
           <use href="./images/svg/symbol-defs.svg#icon-search"></use>
         </svg>
       </button>
-      <p class="search__warn js-search-warn is-hidden">Search result not successful. Enter the correct movie name.</p>
+      <p class="search__warn js-search-warn is-hidden">Search result not successful. Enter the correct movie name</p>
     </form>
     <div class="lib-btns">
         <ul class="lib-btns__list">
             <li class="lib-btns__item">
-                <button class="lib-btns__btn js-watched-btn is-hidden" type="button">WATCHED</button>
+                <button class="lib-btns__btn js-watched-btn active" type="button">WATCHED</button>
             </li>
             <li class="lib-btns__item">
-                <button class="lib-btns__btn js-queue-btn is-hidden" type="button">QUEUE</button>
+                <button class="lib-btns__btn js-queue-btn active" type="button">QUEUE</button>
             </li>
         </ul>
       </div>
