@@ -1,0 +1,57 @@
+.header {
+  padding: 140px 0 92px;
+  background-image: linear-gradient(
+      to top,
+      var(--color-gradient-headers),
+      var(--color-gradient-headers)
+    ),
+    url('../images/home/mobile/header-bg-mobile.jpg');
+
+  @include mq(retina) {
+    background-image: linear-gradient(
+        to top,
+        var(--color-gradient-headers),
+        var(--color-gradient-headers)
+      ),
+      url('../images/home/mobile/header-bg-mobile@2x.jpg');
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mq(tab) {
+    padding-bottom: 80px;
+    background-image: linear-gradient(
+        to top,
+        var(--color-gradient-headers),
+        var(--color-gradient-headers)
+      ),
+      url('../images/home/tablet/header-bg-tablet.jpg');
+
+    @include mq(retina) {
+      background-image: linear-gradient(
+          to top,
+          var(--color-gradient-headers),
+          var(--color-gradient-headers)
+        ),
+        url('../images/home/tablet/header-bg-tablet@2x.jpg');
+    }
+  }
+
+  @include mq(desk) {
+    background-image: linear-gradient(
+        to top,
+        var(--color-gradient-headers),
+        var(--color-gradient-headers)
+      ),
+      url('../images/home/desktop/header-bg-desktop.jpg');
+
+    @include mq(retina) {
+      background-image: linear-gradient(
+          to top,
+          var(--color-gradient-headers),
+          var(--color-gradient-headers)
+        ),
+        url('../images/home/desktop/header-bg-desktop@2x.jpg');
+    }
+  }
+}
