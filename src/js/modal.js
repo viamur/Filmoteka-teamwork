@@ -3,9 +3,11 @@ import makeModal from '../partials/hbs/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 
 const fetchId = new ApiFetchId();
+const list = document.querySelector('.library__list');
 
-const div = document.querySelector('.js-modal-close');
+const onOpenModal = e => {
+  e.preventDefault();
+  console.log(e.target.closest('a'));
+};
 
-// fetchId.apiFetchId(453395).then(data => {
-//   const ca = basicLightbox.create(makeModal(data)).show();
-// });
+list.addEventListener('click', onOpenModal);
