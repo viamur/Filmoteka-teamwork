@@ -27,7 +27,12 @@
       top: 8px;
       right: 9px;
 
+      width: 40px;
+      height: 40px;
+
       background-color: transparent;
+      background-image: url(../images/close-icon.svg);
+      background-position: center;
       border: none;
     }
     &--watched,
@@ -39,7 +44,7 @@
 
       text-transform: uppercase;
       line-height: 1.33;
-      padding: 3px 12px;
+      padding: 3px 10px;
       @include mq(tab) {
         width: 125px;
       }
@@ -53,7 +58,9 @@
       margin-right: 15px;
       transition: all var(--transition);
     }
-    &--watched.active {
+    &--watched.active,
+    &--watched:hover,
+    &--watched:focus {
       background-color: var(--bg-color-white);
       border: 1px solid var(--text-color-black);
       color: var(--text-color-black);
@@ -64,7 +71,9 @@
       border: 1px solid var(--text-color-black);
       transition: all var(--transition);
     }
-    &--queue.active {
+    &--queue.active,
+    &--queue:hover,
+    &--queue:focus {
       background-color: var(--btn-bg-color);
       color: var(--bg-color-white);
       border: none;
@@ -114,7 +123,6 @@
   }
 
   &__list {
-    display: flex;
     margin-bottom: 20px;
 
     font-weight: 500;
@@ -122,31 +130,23 @@
     @include mq(desk) {
       font-size: 12px;
     }
-    &--keys {
-    }
-
-    &--desc {
-    }
   }
 
   &__item {
-    &:first-child {
-      margin-right: 40px;
+    display: flex;
+    &:not(:last-child) {
+      margin-bottom: 8px;
     }
     &--key {
+      min-width: 110px;
       color: var(--modal-key-color);
-      &:not(:last-child) {
-        margin-bottom: 8px;
+      @include mq(desk) {
+        max-width: 130px;
       }
     }
 
     &--desc {
-      &:not(:last-child) {
-        margin-bottom: 8px;
-      }
-      &:nth-child(3) {
-        text-transform: uppercase;
-      }
+      text-transform: uppercase;
     }
 
     &--vote {
@@ -170,12 +170,11 @@
 
   &__sub {
     line-height: 1.33;
+    font-size: 12px;
     text-transform: uppercase;
+    font-weight: 500px;
 
     margin-bottom: 8px;
-    @include mq(desk) {
-      font-size: 12px;
-    }
   }
 
   &__text {
