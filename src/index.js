@@ -6,16 +6,17 @@ import {
   renderQueueList,
 } from './js/render-list';
 import './js/converting-data';
-import { workLocStorage } from './js/local-storage';
 import './js/pagination';
 import './js/search';
+import { workLocStorage } from './js/local-storage';
+import './js/footer-modal';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_HOME
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
-  rederTrandList();
+  // rederTrandList();
 } else if (
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
 ) {
