@@ -8,6 +8,7 @@ import {
 import './js/converting-data';
 import './js/pagination';
 import { workLocStorage } from './js/local-storage';
+import './js/footer-modal';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
