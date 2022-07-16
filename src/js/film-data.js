@@ -13,7 +13,7 @@ function createYear(obj) {
   return obj.release_date ? obj.release_date.split('-')[0] : '';
 }
 
-// Создание нового свойства с жанрами для запроса по ID фильма
+/* Создание списка жанров по id  */
 function creatArrIdForGenges(array) {
   return array.genres
     .map(genre => genre.name)
