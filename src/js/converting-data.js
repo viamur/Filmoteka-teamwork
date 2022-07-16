@@ -83,7 +83,6 @@ const newDataSearch = async () => {
   });
   return await Promise.all(newArr);
 };
-api.id = 639933;
 /* конвертация данных для LIBRARRY */
 const newDataId = async () => {
   const respons = await api.idFetch();
