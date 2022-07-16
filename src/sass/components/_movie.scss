@@ -47,6 +47,7 @@ main {
 .movie {
   display: flex;
   flex-direction: column;
+
   width: 100%;
   height: auto;
 
@@ -59,9 +60,13 @@ main {
     max-height: 634px;
   }
   &__link {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   &__img {
+    flex-grow: 1;
     object-fit: cover;
     width: 100%;
     max-height: auto;
