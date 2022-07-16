@@ -50,7 +50,7 @@ main {
 
   width: 100%;
   height: auto;
-
+  /* 
   @include mq(tab) {
     max-width: 336px;
     max-height: 495px;
@@ -58,7 +58,7 @@ main {
   @include mq(desk) {
     max-width: 395px;
     max-height: 634px;
-  }
+  } */
   &__link {
     display: flex;
     flex-direction: column;
