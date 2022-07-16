@@ -13,6 +13,7 @@ export class ApiFetchId {
     this.page = 1;
     this.query = null;
     this.id = 0;
+    this.totalItems = 0;
   }
 
   /* Запрос возвращает ОБЪЕКТ с подробной информ о фильме поиск по ID */
@@ -31,9 +32,7 @@ export class ApiFetchId {
       page: this.page,
     });
     try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#SEARCH}?${search}`
-      );
+      const respons = await axios.get(`${this.#BASE_URL}${this.#SEARCH}?${search}`);
       this.totalPages = respons.data.total_pages;
       return respons.data.results;
     } catch (error) {
@@ -45,12 +44,11 @@ export class ApiFetchId {
   async trandFetch() {
     try {
       const respons = await axios.get(
-        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${
-          this.page
-        }`
+        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${this.page}`
       );
+      this.totalItems = respons.data.total_results;
       this.totalPages = respons.data.total_pages;
-      return respons.data.results;
+      return respons.data;
     } catch (error) {
       console.log(error.message);
     }
@@ -59,9 +57,7 @@ export class ApiFetchId {
   /* Запрос возвращает массив 19шт, id и name, ЖАНРОВ фильмов */
   async genreListFetch() {
     try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#GENRE}?api_key=${this.#API_KEY}`
-      );
+      const respons = await axios.get(`${this.#BASE_URL}${this.#GENRE}?api_key=${this.#API_KEY}`);
       return respons.data.genres;
     } catch (error) {
       console.log(error.message);

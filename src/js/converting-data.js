@@ -22,8 +22,7 @@ const genreObj = api
 /* конвертируем данные и возвращаем промис с новыми данными для ТРЕНДА */
 const newDataTrand = async () => {
   const respons = await api.trandFetch();
-
-  const newArr = respons.map(async obj => {
+  const newArr = respons.results.map(async obj => {
     const year = obj.release_date.split('-').slice(0, 1).join('');
 
     const newRespons = await genreObj;
