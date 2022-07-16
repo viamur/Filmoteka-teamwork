@@ -1,42 +1,42 @@
 <div class='container'>
   <div class='modal'>
-    <button type='button' class='modal__btn--close'>
-      <img src='./images/close-icon.svg' alt='icon close' class='modal__icon--close' />
-    </button>
+    <button type='button' class='modal__btn--close js-modal-close'></button>
     <div class='modal__wrap'>
-      <img src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt='TEXTt' class='modal__img' />
+      <img
+        src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+        alt='{{title}}'
+        class='modal__img'
+      />
       <div class='modal__info'>
         <h2 class='modal__title'>{{title}}</h2>
         <ul class='modal__list'>
           <li class='modal__item'>
-            <ul class='modal__list--keys'>
-              <li class='modal__item--key'>Vote / Votes</li>
-              <li class='modal__item--key'>Popularity</li>
-              <li class='modal__item--key'>Original Title</li>
-              <li class='modal__item--key'>Genre</li>
-            </ul>
+            <p class='modal__item--key'>Vote / Votes</p>
+            <p><span class='modal__item--vote'>{{vote_average}}</span><span
+                class='modal__item--span'
+              > / </span><span class='modal__item--num'>{{vote_count}}</span></p>
           </li>
           <li class='modal__item'>
-            <ul class='modal__list--desc'>
-              <li class='modal__item--desc'><span
-                  class='modal__item--vote'
-                >{{vote_average}}</span><span class='modal__item--span'> / </span><span
-                  class='modal__item--num'
-                >{{vote_count}}</span></li>
-              <li class='modal__item--desc'>{{popularity}} </li>
-              <li class='modal__item--desc'>{{original_title}}</li>
-              <li class='modal__item--desc'>{{#each genres}} {{this, }}
-                  {{#unless @last}} {{this}} {{/unless}}
-                {{/each}}
-              </li>
-            </ul>
+            <p class='modal__item--key'>Popularity</p>
+            <p>{{popularity}}</p>
+          </li>
+          <li class='modal__item'>
+            <p class='modal__item--key'>Original Title</p>
+            <p class='modal__item--desc'>{{original_title}}</p>
+          </li>
+          <li class='modal__item'>
+            <p class='modal__item--key'>Genre</p>
+            <p>{{#each genres}}
+                {{#unless @last}} {{this.name}}, {{/unless}}
+                {{#if @last}} {{this.name}} {{/if}}
+              {{/each}}</p>
           </li>
         </ul>
         <h3 class='modal__sub'>About</h3>
         <p class='modal__text'>{{overview}} </p>
         <div class='modal__btn'>
-          <button type='button' class='modal__btn--watched'>add to Watched</button>
-          <button type='button' class='modal__btn--queue'>add to queue</button>
+          <button type='button' class='modal__btn--watched js-modal-watched'>add to Watched</button>
+          <button type='button' class='modal__btn--queue js-modal-queue'>add to queue</button>
         </div>
       </div>
 

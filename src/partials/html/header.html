@@ -1,46 +1,42 @@
 <header class="header">
-    <div class="container">
-      <div class="navigation-wrapper">
-        <a class="header__link" href="./index.html">
-          <svg class="header__logo" width="24" height="24">
-            <use href="./images/svg/symbol-defs.svg#icon-film"></use>
-          </svg>
-          <span class="header__title">Filmoteka</span>
-        </a>
-        <nav class="nav">
-            <ul class="nav__list">
-              <li class="nav__item active">
-                <button class="nav__btn js-nav-btn" type="button">HOME</button>
-            </li>
-            <li class="nav__item">
-                <button class="nav__btn js-nav-btn" type="button">MY LIBRARY</button>
-            </li>
-          </ul>
+  <div class="container">
+    <div class="navigation-wrapper">
+      <a class="header__link" href="./index.html">
+        <svg class="header__logo" width="24" height="24">
+          <use href="./images/svg/symbol-defs.svg#icon-film"></use>
+        </svg>
+        <span class="header__title">Filmoteka</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item active">
+            <button class="nav__btn js-nav-btn" type="button">HOME</button>
+          </li>
+          <li class="nav__item">
+            <button class="nav__btn js-nav-btn" type="button">MY LIBRARY</button>
+          </li>
+        </ul>
       </nav>
     </div>
     <form class="search__form js-search-form" autocomplete="off">
-      <input
-        class="search__input js-search-input"
-        type="text"
-        name="searchQuery"
-        placeholder="Movie search"
-      />
+      <input class="search__input js-search-input" type="text" name="searchQuery" placeholder="Movie search" />
       <button class="search__btn js-search-btn" type="submit">
-        <svg class="search__icon" width="20" height="20">
+        <svg class="search__icon" width="12" height="12">
           <use href="./images/svg/symbol-defs.svg#icon-search"></use>
         </svg>
       </button>
-      <p class="search__warn js-search-warn is-hidden">Search result not successful. Enter the correct movie name.</p>
+      <p class="search__warn js-search-warn visually-hidden">Search result not successful. Enter the correct movie name
+      </p>
     </form>
-    <div class="lib-btns">
-        <ul class="lib-btns__list">
-            <li class="lib-btns__item">
-                <button class="lib-btns__btn js-watched-btn is-hidden" type="button">WATCHED</button>
-            </li>
-            <li class="lib-btns__item">
-                <button class="lib-btns__btn js-queue-btn is-hidden" type="button">QUEUE</button>
-            </li>
-        </ul>
-      </div>
+    <div class="lib-btns visually-hidden">
+      <ul class="lib-btns__list">
+        <li class="lib-btns__item">
+          <button class="lib-btns__btn js-watched-btn active" type="button">WATCHED</button>
+        </li>
+        <li class="lib-btns__item">
+          <button class="lib-btns__btn js-queue-btn active" type="button">QUEUE</button>
+        </li>
+      </ul>
     </div>
-  </header> 
+  </div>
+</header>
