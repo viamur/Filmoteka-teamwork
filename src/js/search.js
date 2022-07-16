@@ -1,23 +1,20 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { searchFetch } from './api-fetch-id';
+import moduleName from './render-list';
+import cardTpl from '../partials/hbs/library-film-card.hbs';
 
 const formRef = document.querySelector('.js-search-form');
 const inputRef = document.querySelector('.js-search-input');
 const searchBtn = document.querySelector('.js-search-btn');
 
-formRef.addEventListener('submit', doSearch);
+const gallery = document.querySelector('.library__list');
 
-let page = 1;
-let searchQuevery = '';
+const fetchApi = new ApiFetchId();
 
-/* Функция поиска */
+const page = 1;
+/* const query = '';
 
-function doSearch(event) {
-  event.preventDefault();
+query = document.getElementById('inputRef').value; */
 
-  const inputedText = inputRef.value;
-
-  if (inputedText.length <= 1) {
-    return Notify.warning('Please type something');
-  }
-}
+formRef.addEventListener('submit', renderSearchList('thor'));
