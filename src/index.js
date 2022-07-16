@@ -8,6 +8,7 @@ import {
 import './js/converting-data';
 import { workLocStorage } from './js/local-storage';
 import './js/pagination';
+import './js/search';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
