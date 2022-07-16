@@ -6,6 +6,7 @@ import {
   renderQueueList,
 } from './js/render-list';
 import { workLocStorage } from './js/local-storage';
+import './js/pagination';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
