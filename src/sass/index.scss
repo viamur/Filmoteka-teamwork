@@ -10,9 +10,10 @@
 @import './base/hidden';
 
 @import './components/modal';
-@import './components/pagitation';
 @import './components/movie';
 
 @import './layout/films-list';
 @import './layout/footer';
 @import './layout/header';
+@import './layout/pagination';
+@import './components/_footer-modal.scss';
