@@ -5,6 +5,7 @@ import {
   renderWatchedList,
   renderQueueList,
 } from './js/render-list';
+import './js/converting-data';
 import { workLocStorage } from './js/local-storage';
 
 if (
