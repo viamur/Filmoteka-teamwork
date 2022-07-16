@@ -9,12 +9,12 @@
 
       <h3 class='movie__name'>{{this.title}}</h3>
       <div class='movie__tag'>
-        <p class='movie__category'>{{#each this.genre_ids}}
+        <p class='movie__category'>{{#each this.genre}}
             {{#unless @last}} {{this}}, {{/unless}}
             {{#if @last}} {{this}} {{/if}}
           {{/each}}
           |
-          {{this.release_date}}</p>
+          {{this.year}}</p>
       </div>
     </a>
   </li>
