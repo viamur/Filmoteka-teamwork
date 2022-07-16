@@ -6,6 +6,8 @@ main {
 }
 
 .library {
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: var(--main-secion-color);
@@ -61,6 +63,7 @@ main {
   }
 
   &__img {
+    object-fit: cover;
     width: 100%;
     max-height: auto;
     margin-bottom: 10px;
