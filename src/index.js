@@ -6,6 +6,7 @@ import {
   renderQueueList,
 } from './js/render-list';
 import { workLocStorage } from './js/local-storage';
+import './js/pagination';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
@@ -13,10 +14,14 @@ if (
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
   rederTrandList();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
+) {
   /* функиця, отрисовка вкладки QUEUE */
   renderQueueList();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED
+) {
   /* функция, отрисовки вкладки  WATCHED */
   renderWatchedList();
 } else {
