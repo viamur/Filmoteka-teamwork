@@ -8,12 +8,10 @@ const gallery = document.querySelector('.library__list');
 function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
-  console.log('searchQuery.value :>> ', searchQuery);
-  /*  if (searchQuery.value.length > 1) {
-    console.log('searchQuery.value :>> ', searchQuery);
-    return searchQuery;
-    console.log('searchQuery.value :>> ', searchQuery.value);
-  } */
+  /* console.log('searchQuery.value :>> ', searchQuery.value); */
+  if (searchQuery.value.length > 1) {
+    renderSearchList(searchQuery.value);
+  }
 }
 
-formRef.addEventListener('submit', renderSearchList());
+formRef.addEventListener('submit', searchHandler);
