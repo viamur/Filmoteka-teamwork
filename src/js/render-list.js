@@ -2,6 +2,7 @@ import makeSearchGallery from '../partials/hbs/search-film-card.hbs';
 import makeLibraryGallery from '../partials/hbs/library-film-card.hbs';
 import { workLocStorage } from './local-storage';
 import { newDataTrand, newDataSearch, newDataId, api } from './converting-data';
+import { searchInput } from './pagination';
 /* в этом js для обращения к api запроса используем из import выше */
 
 const listEl = document.querySelector('.js-list');
@@ -28,6 +29,15 @@ const renderSearchList = query => {
     const errSpan = document.querySelector('.js-search-warn');
     errSpan.classList.add('visually-hidden');
     console.log(data);
+    const container = document.querySelector('.tui-pagination');
+    // searchInput(query);
+    container.classList.remove('is-hidden');
+    if (data.length / 20 < 1) {
+      container.classList.add('is-hidden');
+    }
+    if (data.length / 20 > 1) {
+      container.classList.remove('is-hidden');
+    }
     if (data.length === 0) {
       errSpan.classList.remove('visually-hidden');
       return;
@@ -64,4 +74,10 @@ const renderQueueList = async () => {
   listEl.innerHTML = makeLibraryGallery(allCardFilms);
 };
 
-export { rederTrandList, pageOne, renderSearchList, renderWatchedList, renderQueueList };
+export {
+  rederTrandList,
+  pageOne,
+  renderSearchList,
+  renderWatchedList,
+  renderQueueList,
+};
