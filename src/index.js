@@ -7,6 +7,7 @@ import {
 } from './js/render-list';
 import './js/converting-data';
 import './js/pagination';
+import './js/search';
 import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
 
@@ -16,10 +17,14 @@ if (
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
   // rederTrandList();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
+) {
   /* функиця, отрисовка вкладки QUEUE */
   renderQueueList();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED
+) {
   /* функция, отрисовки вкладки  WATCHED */
   renderWatchedList();
 } else {
