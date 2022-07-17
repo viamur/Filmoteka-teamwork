@@ -1,4 +1,8 @@
 .backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -13,6 +17,10 @@
   transition: opacity var(--transition);
 
   z-index: 90;
+  @include mq(tab) {
+    flex-wrap: wrap;
+    align-content: center;
+  }
   &.is-hidden {
     opacity: 0;
     visibility: hidden;

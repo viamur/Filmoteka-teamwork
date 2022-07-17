@@ -3,11 +3,13 @@
   background-color: var(--bg-color-white);
   padding: 48px 20px 40px 20px;
   position: relative;
+  max-width: 480px;
   @include mq(tab) {
+    max-width: 705px;
     padding: 40px 72px 40px 36px;
   }
   @include mq(desk) {
-    width: 806px;
+    max-width: 806px;
     height: 560px;
 
     padding: 40px 12px;

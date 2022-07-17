@@ -5,24 +5,28 @@ import { workLocStorage } from './local-storage';
 const listEl = document.querySelector('.js-list');
 const backdropEl = document.querySelector('[data-modal]');
 
-const closeBackdropHandler = e => {
-  if (e.target.dataset.modal !== '') return;
-  backdropEl.classList.add('is-hidden');
-  backdropEl.innerHTML = '';
-};
 const closeFn = () => {
   const closeBtnEl = document.querySelector('.js-modal-close');
   const close = () => {
     backdropEl.classList.add('is-hidden');
     backdropEl.innerHTML = '';
-    document.removeEventListener('keydown', onKeyDownEscape);
-    closeBtnEl.removeEventListener('click', close);
     document.body.classList.remove('no-scroll');
+    removeEventListener();
+  };
+  const closeBackdropHandler = e => {
+    if (e.target.dataset.modal !== '') return;
+    close();
   };
   const onKeyDownEscape = e => {
     if (e.code !== 'Escape') return;
     close();
   };
+  const removeEventListener = () => {
+    document.removeEventListener('keydown', onKeyDownEscape);
+    closeBtnEl.removeEventListener('click', close);
+    backdropEl.removeEventListener('click', closeBackdropHandler);
+  };
+  backdropEl.addEventListener('click', closeBackdropHandler);
   document.addEventListener('keydown', onKeyDownEscape);
   closeBtnEl.addEventListener('click', close);
 };
@@ -86,7 +90,6 @@ const actionBtnQueue = (id, btn) => {
 const onOpenModal = async e => {
   if (e.target.nodeName === 'UL') return;
   e.preventDefault();
-  console.dir(e.target);
   const itemElId = e.target.closest('li').id;
   api.id = itemElId;
   const data = await newDataId();
@@ -107,5 +110,4 @@ const onOpenModal = async e => {
   queueBtnEl.addEventListener('click', onQueueBtn);
   closeFn();
 };
-backdropEl.addEventListener('click', closeBackdropHandler);
 listEl.addEventListener('click', onOpenModal);
