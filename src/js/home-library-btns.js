@@ -1,5 +1,6 @@
-import { searchInput } from './pagination';
 import { renderWatchedList, rederTrandList } from './render-list';
+import { searchInput } from './pagination';
+
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
   libraryBtn: document.querySelector('.js-library-btn'),
@@ -14,6 +15,7 @@ refs.homeBtn.addEventListener('click', onClickHomeBtn);
 refs.libraryBtn.addEventListener('click', onClickLibraryBtn);
 refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
 refs.queueBtn.addEventListener('click', onClickQueuedBtn);
+refs.searchForm.addEventListener('submit', searchHandler);
 
 console.dir(refs.searchForm.classList.value.includes('visually-hidden'));
 console.dir(refs.libraryBtns.classList.value);
@@ -55,4 +57,15 @@ function swapClassHiden() {
 /* Функция очистить фильмы в ДОМ */
 function cleanFilmCardsInDom() {
   refs.listEl.innerHTML = '';
+}
+
+/* Функция поиска */
+function searchHandler(e) {
+  e.preventDefault();
+  const { searchQuery } = e.target.elements;
+  /* console.log('searchQuery.value :>> ', searchQuery.value); */
+  if (searchQuery.value.trim().length > 1) {
+    // renderSearchList(searchQuery.value.trim());
+    searchInput(searchQuery.value.trim());
+  }
 }
