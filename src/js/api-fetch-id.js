@@ -13,6 +13,7 @@ export class ApiFetchId {
     this.page = 1;
     this.query = null;
     this.id = 0;
+    this.totalItems = 0;
   }
 
   /* Запрос возвращает ОБЪЕКТ с подробной информ о фильме поиск по ID */
@@ -43,10 +44,11 @@ export class ApiFetchId {
   async trandFetch() {
     try {
       const respons = await axios.get(
-        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&per_page=${this.page}`
+        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${this.page}`
       );
+      this.totalItems = respons.data.total_results;
       this.totalPages = respons.data.total_pages;
-      return respons.data.results;
+      return respons.data;
     } catch (error) {
       console.log(error.message);
     }

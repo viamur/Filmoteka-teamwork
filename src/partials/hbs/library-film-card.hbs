@@ -1,20 +1,21 @@
 {{#each this}}
-  <li class='library__item movie card-item' id=''>
+  <li class='library__item movie card-item' id='{{this.id}}'>
     <a href='#' class='movie__link'>
       <img
         class='movie__img'
+        {{#if this.poster_path}}
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
-        alt='{{this.titel}}'
+        {{else}}
+        src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
+        {{/if}}
+        alt='{{this.title}}'
       />
 
-      <h3 class='movie__name'>{{this.titel}}</h3>
+      <h3 class='movie__name'>{{this.title}}</h3>
       <div class='movie__tag'>
-        <p class='movie__category'>{{#each genres}}
-            {{#unless @last}} {{this.name}}, {{/unless}}
-            {{#if @last}} {{this.name}} {{/if}}
-          {{/each}}
+        <p class='movie__category'>{{this.genre}}
           |
-          {{this.release_date}}</p>
+          {{this.year}}</p>
         <span class='movie__rate'>{{this.vote_average}}</span>
       </div>
     </a>

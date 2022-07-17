@@ -3,11 +3,13 @@
   background-color: var(--bg-color-white);
   padding: 48px 20px 40px 20px;
   position: relative;
+  max-width: 480px;
   @include mq(tab) {
+    max-width: 705px;
     padding: 40px 72px 40px 36px;
   }
   @include mq(desk) {
-    width: 806px;
+    max-width: 806px;
     height: 560px;
 
     padding: 40px 12px;
@@ -52,7 +54,8 @@
         width: 136px;
       }
     }
-    &--watched {
+    &--watched,
+    &--watched:active {
       background-color: var(--btn-bg-color);
       color: var(--bg-color-white);
       margin-right: 15px;
@@ -66,7 +69,8 @@
       color: var(--text-color-black);
     }
 
-    &--queue {
+    &--queue,
+    &--queue:active {
       background-color: var(--bg-color-white);
       border: 1px solid var(--text-color-black);
       transition: all var(--transition);
@@ -186,4 +190,8 @@
       margin-bottom: 20px;
     }
   }
+}
+.modal__wrapper {
+  display: flex;
+  justify-content: center;
 }
