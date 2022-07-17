@@ -2,8 +2,9 @@ import Pagination from 'tui-pagination';
 import { api } from './converting-data';
 import { rederTrandList } from './render-list';
 import { renderSearchList } from './render-list';
+import { totalPages } from './api-fetch-id';
 
-const container = document.getElementById('tui-pagination-container');
+const container = document.querySelector('.tui-pagination');
 const pagination = new Pagination(container, {
   itemsPerPage: 20,
   visiblePages: 5,
@@ -32,7 +33,7 @@ async function fetchPerPage(page) {
 }
 document.onload = fetchPerPage(1);
 
-export function searchInput() {
+export function searchInput(query) {
   const container = document.getElementById('tui-pagination-container');
   const pagination = new Pagination(container, {
     itemsPerPage: 20,
@@ -57,10 +58,9 @@ export function searchInput() {
   async function fetchPerPage(page) {
     api.page = page;
     const pesponse = await api.searchFetch();
-    renderSearchList('thor');
+    await renderSearchList(query);
 
     if (page === 1) pagination.reset(pesponse.total_results);
   }
   document.onload = fetchPerPage(1);
 }
-searchInput();

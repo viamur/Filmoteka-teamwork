@@ -37,6 +37,7 @@ export class ApiFetchId {
       );
 
       this.totalPages = respons.data.total_pages;
+
       return respons.data;
     } catch (error) {
       console.log(error.message);

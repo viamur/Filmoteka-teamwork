@@ -1,5 +1,6 @@
 import { renderSearchList } from './render-list';
 import Notiflix from 'notiflix';
+import { searchInput } from './pagination';
 
 const formRef = document.querySelector('.js-search-form');
 
@@ -9,8 +10,9 @@ function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
   /* console.log('searchQuery.value :>> ', searchQuery.value); */
-  if (searchQuery.value.length > 1) {
-    renderSearchList(searchQuery.value);
+  if (searchQuery.value.trim().length > 1) {
+    // renderSearchList(searchQuery.value.trim());
+    searchInput(searchQuery.value.trim());
   }
 }
 
