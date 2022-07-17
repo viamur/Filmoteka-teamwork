@@ -60,7 +60,7 @@ const newDataSearch = async () => {
   Loading.circle();
   const respons = await api.searchFetch();
 
-  const newArr = respons.map(async obj => {
+  const newArr = respons.results.map(async obj => {
     const year = obj.release_date.split('-').slice(0, 1).join('');
 
     const newRespons = await genreObj;
