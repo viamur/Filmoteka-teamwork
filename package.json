@@ -18,8 +18,11 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.5.2",
     "axios": "^0.27.2",
     "basiclightbox": "^5.0.4",
+    "firebase": "^9.9.0",
+    "firebaseui": "^6.0.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "parcel-transformer-hbs": "^1.0.4",
@@ -27,8 +30,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
-    "buffer": "^6.0.3",
     "@parcel/transformer-webmanifest": "^2.6.0",
+    "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",

@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmoteka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+    />
+    <link rel="icon" type="image/svg+xml" href="./images/favicon/safari-pinned-tab.svg" />
+    <link rel="icon" type="image/png" href="./images/favicon/android-chrome-512x512.png" />
+  </head>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
-  <link rel="icon" type="image/svg+xml" href="./images/favicon/safari-pinned-tab.svg" />
-  <link rel="icon" type="image/png" href="./images/favicon/android-chrome-512x512.png" />
-</head>
+  <body>
+    <header>
+      <include src="./partials/html/firebase.html"></include>
+      <include src="./partials/html/header.html"></include>
+    </header>
+    <main>
+      <include src="./partials/html/slider.html"></include>
 
-<body>
-  <header>
-    <include src="./partials/html/header.html"></include>
-  </header>
-  <main>
-    <include src="./partials/html/movie-library.html"></include>
-    <section>
-      <include src="./partials/html/pagination.html"></include>
-    </section>
-  </main>
-  <!-- <footer> -->
-  <include src="./partials/html/footer.html"></include>
-  <!-- </footer> -->
-  <script type="module" src="./index.js"></script>
-</body>
-
+      <include src="./partials/html/movie-library.html"></include>
+      <section>
+        <include src="./partials/html/pagination.html"></include>
+      </section>
+    </main>
+    <!-- <footer> -->
+    <include src="./partials/html/footer.html"></include>
+    <!-- </footer> -->
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
