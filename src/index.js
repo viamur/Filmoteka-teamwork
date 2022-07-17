@@ -1,4 +1,6 @@
 import './js/modal';
+import './js/slider';
+import './js/trailer';
 import {
   rederTrandList,
   renderSearchList,
