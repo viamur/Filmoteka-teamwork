@@ -1,4 +1,5 @@
 import { ApiFetchId } from './api-fetch-id';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 /* теперь везде используем на сайте эту api */
 const api = new ApiFetchId();
@@ -21,6 +22,7 @@ const genreObj = api
 
 /* конвертируем данные и возвращаем промис с новыми данными для ТРЕНДА */
 const newDataTrand = async () => {
+  Loading.circle();
   const respons = await api.trandFetch();
   const newArr = respons.results.map(async obj => {
     const year = obj.release_date.split('-').slice(0, 1).join('');
@@ -49,11 +51,13 @@ const newDataTrand = async () => {
       genre,
     };
   });
+  Loading.remove();
   return await Promise.all(newArr);
 };
 
 /* конвертация данных для ПОИСКА */
 const newDataSearch = async () => {
+  Loading.circle();
   const respons = await api.searchFetch();
 
   const newArr = respons.map(async obj => {
@@ -81,10 +85,12 @@ const newDataSearch = async () => {
       genre,
     };
   });
+  Loading.remove();
   return await Promise.all(newArr);
 };
 /* конвертация данных для LIBRARRY */
 const newDataId = async () => {
+  Loading.circle();
   const respons = await api.idFetch();
   const year = respons.release_date.split('-').slice(0, 1).join('');
   const genres = respons.genres.map(obj => obj.name);
@@ -106,6 +112,7 @@ const newDataId = async () => {
     genre,
     year,
   };
+  Loading.remove();
   return newArr;
 };
 export { newDataTrand, newDataSearch, newDataId, api };
