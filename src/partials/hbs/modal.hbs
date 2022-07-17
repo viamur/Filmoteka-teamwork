@@ -1,7 +1,13 @@
 <div class='modal'>
   <button type='button' class='modal__btn--close js-modal-close'></button>
   <div class='modal__wrap'>
-    <img src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt='{{title}}' class='modal__img' />
+    <img 
+            {{#if poster_path}}
+        src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+        {{else}}
+        src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
+        {{/if}}
+    alt='{{title}}' class='modal__img' />
     <div class='modal__info'>
       <h2 class='modal__title'>{{title}}</h2>
       <ul class='modal__list'>
@@ -19,13 +25,18 @@
           <p class='modal__item--key'>Original Title</p>
           <p class='modal__item--desc'>{{original_title}}</p>
         </li>
+
+          {{#if genres}}
         <li class='modal__item'>
           <p class='modal__item--key'>Genre</p>
-          <p>{{#each genres}}
+          <p>
+            {{#each genres}}
               {{#unless @last}} {{this.name}}, {{/unless}}
               {{#if @last}} {{this.name}} {{/if}}
-            {{/each}}</p>
+            {{/each}}
+            </p>
         </li>
+        {{/if}}
       </ul>
       <h3 class='modal__sub'>About</h3>
       <p class='modal__text'>{{overview}} </p>

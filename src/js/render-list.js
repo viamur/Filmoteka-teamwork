@@ -25,9 +25,11 @@ const renderSearchList = query => {
   api.query = query;
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_HOME);
   newDataSearch().then(data => {
+    const errSpan = document.querySelector('.js-search-warn');
+    errSpan.classList.add('visually-hidden');
     console.log(data);
     if (data.length === 0) {
-      document.querySelector('.js-search-warn').classList.remove('visually-hidden');
+      errSpan.classList.remove('visually-hidden');
       return;
     }
     listEl.innerHTML = makeSearchGallery(data);
