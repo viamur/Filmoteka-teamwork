@@ -7,6 +7,7 @@ const refs = {
   queueBtn: document.querySelector('.js-queue-btn'),
   searchForm: document.querySelector('.js-search-form'),
   libraryBtns: document.querySelector('.js-library-btns'),
+  listEl: document.querySelector('.js-list'),
 };
 
 refs.homeBtn.addEventListener('click', onClickHomeBtn);
@@ -18,18 +19,18 @@ console.dir(refs.searchForm.classList.value.includes('visually-hidden'));
 console.dir(refs.libraryBtns.classList.value);
 function onClickHomeBtn(e) {
   e.preventDefault();
-
   rederTrandList();
   swapClassHiden();
 }
 function onClickLibraryBtn(e) {
   e.preventDefault();
-
+  cleanFilmCardsInDom();
   renderWatchedList();
   swapClassHiden();
 }
 function onClickWatchedBtn(e) {
   e.preventDefault();
+  renderWatchedList();
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
@@ -52,3 +53,6 @@ function swapClassHiden() {
 }
 
 /* Функция очистить фильмы в ДОМ */
+function cleanFilmCardsInDom() {
+  refs.listEl.innerHTML = '';
+}
