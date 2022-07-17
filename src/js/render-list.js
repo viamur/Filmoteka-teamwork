@@ -40,6 +40,7 @@ const renderSearchList = query => {
     }
     if (data.length === 0) {
       errSpan.classList.remove('visually-hidden');
+      renderNoFound();
       return;
     }
     listEl.innerHTML = makeSearchGallery(data);
@@ -51,7 +52,10 @@ const renderWatchedList = async () => {
   listEl.innerHTML = '';
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_WATCHED);
   const arrLocalStorage = workLocStorage.getUserWatched();
-  if (arrLocalStorage === undefined || arrLocalStorage.length === 0) return;
+  if (arrLocalStorage === undefined || arrLocalStorage.length === 0) {
+    renderNoFound();
+    return;
+  }
   const newArrayList = arrLocalStorage.map(async id => {
     api.id = id;
     return await newDataId();
@@ -65,7 +69,10 @@ const renderQueueList = async () => {
   listEl.innerHTML = '';
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_QUEUE);
   const arrLocalStorage = workLocStorage.getUserQUEUE();
-  if (arrLocalStorage === undefined || arrLocalStorage.length === 0) return;
+  if (arrLocalStorage === undefined || arrLocalStorage.length === 0) {
+    renderNoFound();
+    return;
+  }
   const newArrayList = arrLocalStorage.map(async id => {
     api.id = id;
     return await newDataId();
@@ -73,6 +80,12 @@ const renderQueueList = async () => {
   const allCardFilms = await Promise.all(newArrayList);
   listEl.innerHTML = makeLibraryGallery(allCardFilms);
 };
+
+/* Рендер при нинайденых фильмах */
+function renderNoFound() {
+  listEl.innerHTML =
+    '<li style="margin: 0 auto;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif?20060930131405" alt="hors" ></li>';
+}
 
 export {
   rederTrandList,
