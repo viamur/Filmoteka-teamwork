@@ -63,6 +63,9 @@ const actionBtnWatched = (id, btn) => {
     return;
   }
   if (action === 'del') {
+    if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
+      listEl.querySelector(`[id = '${id}']`).remove();
+    }
     workLocStorage.delUserWatched(id);
     btn.dataset.action = 'add';
     btn.classList.remove('active');
@@ -80,6 +83,9 @@ const actionBtnQueue = (id, btn) => {
     return;
   }
   if (action === 'del') {
+    if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
+      listEl.querySelector(`[id = '${id}']`).remove();
+    }
     workLocStorage.delUserQUEUE(id);
     btn.dataset.action = 'add';
     btn.classList.remove('active');

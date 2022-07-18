@@ -2,9 +2,9 @@ import makeSearchGallery from '../partials/hbs/search-film-card.hbs';
 import makeLibraryGallery from '../partials/hbs/library-film-card.hbs';
 import { workLocStorage } from './local-storage';
 import { newDataTrand, newDataSearch, newDataId, api } from './converting-data';
+import chunk from 'lodash.chunk';
 
 /* в этом js для обращения к api запроса используем из import выше */
-
 const container = document.querySelector('.tui-pagination');
 const listEl = document.querySelector('.js-list');
 
@@ -32,7 +32,7 @@ const renderSearchList = query => {
     errSpan.classList.add('visually-hidden');
 
     listEl.innerHTML = makeSearchGallery(data);
-    swapPaginator(data);
+    swapPaginator(data, 20);
     if (data.length === 0) {
       errSpan.classList.remove('visually-hidden');
       renderNoFound();
@@ -50,13 +50,33 @@ const renderWatchedList = async () => {
     renderNoFound();
     return;
   }
-  swapPaginator(arrLocalStorage);
-  const newArrayList = arrLocalStorage.map(async id => {
-    api.id = id;
-    return await newDataId();
-  });
-  const allCardFilms = await Promise.all(newArrayList);
-  listEl.innerHTML = makeLibraryGallery(allCardFilms);
+  //
+  api.totalItems = arrLocalStorage.length;
+  const windowWidth = window.innerWidth;
+  const page = api.page - 1;
+  if (windowWidth < 768) {
+    swapPaginator(arrLocalStorage, 4);
+    const arrInArr = chunk(arrLocalStorage, 4);
+    rend(arrInArr);
+  }
+  if (windowWidth >= 768 && windowWidth < 1280) {
+    swapPaginator(arrLocalStorage, 8);
+    const arrInArr = chunk(arrLocalStorage, 8);
+    rend(arrInArr);
+  }
+  if (windowWidth >= 1280) {
+    swapPaginator(arrLocalStorage, 9);
+    const arrInArr = chunk(arrLocalStorage, 9);
+    rend(arrInArr);
+  }
+  async function rend(arrInArr) {
+    const newArrayList = arrInArr[page].map(async id => {
+      api.id = id;
+      return await newDataId();
+    });
+    const allCardFilms = await Promise.all(newArrayList);
+    listEl.innerHTML = makeLibraryGallery(allCardFilms);
+  }
 };
 
 /* Рендер карточек QUEUE */
@@ -68,13 +88,32 @@ const renderQueueList = async () => {
     renderNoFound();
     return;
   }
-  swapPaginator(arrLocalStorage);
-  const newArrayList = arrLocalStorage.map(async id => {
-    api.id = id;
-    return await newDataId();
-  });
-  const allCardFilms = await Promise.all(newArrayList);
-  listEl.innerHTML = makeLibraryGallery(allCardFilms);
+  api.totalItems = arrLocalStorage.length;
+  const windowWidth = window.innerWidth;
+  const page = api.page - 1;
+  if (windowWidth < 768) {
+    swapPaginator(arrLocalStorage, 4);
+    const arrInArr = chunk(arrLocalStorage, 4);
+    rend(arrInArr);
+  }
+  if (windowWidth >= 768 && windowWidth < 1280) {
+    swapPaginator(arrLocalStorage, 8);
+    const arrInArr = chunk(arrLocalStorage, 8);
+    rend(arrInArr);
+  }
+  if (windowWidth >= 1280) {
+    swapPaginator(arrLocalStorage, 9);
+    const arrInArr = chunk(arrLocalStorage, 9);
+    rend(arrInArr);
+  }
+  async function rend(arrInArr) {
+    const newArrayList = arrInArr[page].map(async id => {
+      api.id = id;
+      return await newDataId();
+    });
+    const allCardFilms = await Promise.all(newArrayList);
+    listEl.innerHTML = makeLibraryGallery(allCardFilms);
+  }
 };
 
 /* Рендер при нинайденых фильмах */
@@ -84,12 +123,12 @@ function renderNoFound() {
 }
 
 /* Проверяет totalPages и убирает или добовляет пагинатор */
-function swapPaginator(data) {
+function swapPaginator(data, amount) {
   container.classList.remove('is-hidden');
-  if (data.length / 20 < 1) {
+  if (data.length / amount < 1) {
     container.classList.add('is-hidden');
   }
-  if (data.length / 20 > 1) {
+  if (data.length / amount > 1) {
     container.classList.remove('is-hidden');
   }
 }

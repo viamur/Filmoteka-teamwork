@@ -104,7 +104,7 @@ const newDataId = async () => {
   } else if (genres.length > 2) {
     const genresN = genres.slice(0, 3);
     genresN[2] = 'Other';
-    genre = genres.join(', ');
+    genre = genresN.join(', ');
   }
 
   const newArr = {
