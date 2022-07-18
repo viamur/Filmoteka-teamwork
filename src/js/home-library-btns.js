@@ -1,11 +1,5 @@
-import {
-  renderWatchedList,
-  rederTrandList,
-  renderQueueList,
-} from './render-list';
-import { searchInput } from './pagination';
-import { takeWached } from './pagination';
-import { takeQueue } from './pagination';
+import { renderWatchedList, rederTrandList, renderQueueList } from './render-list';
+import { searchInput, searchQueue, searchWatched, searchTrand } from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -22,119 +16,56 @@ refs.homeBtn.addEventListener('click', onClickHomeBtn);
 refs.libraryBtn.addEventListener('click', onClickLibraryBtn);
 refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
 refs.queueBtn.addEventListener('click', onClickQueuedBtn);
-refs.searchForm.addEventListener('submit', searchHandler);
 
 console.dir(refs.header.style.backgroundImage);
 
-function onClickHomeBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressHomeBtn();
+export function onClickHomeBtn(e) {
+  refs.searchForm.addEventListener('submit', searchHandler);
 
-  swapClassActive();
-  rederTrandList();
-  swapClassHiden();
+  searchTrand();
+  tapHome();
 }
 function onClickLibraryBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressLibraryBtn();
-
-  swapClassActive();
-  renderWatchedList();
-  swapClassHiden();
+  onClickWatchedBtn();
+  tapibrary();
 }
-function onClickWatchedBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressWatchedBtn();
-  renderWatchedList();
-  takeWached();
+export function onClickWatchedBtn(e) {
+  searchWatched();
+  tapibrary();
 }
-function onClickQueuedBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressQueuedBtn();
-  renderQueueList();
+export function onClickQueuedBtn(e) {
+  searchQueue();
+  tapibrary();
 }
 
 /* Вспомогательные функции */
 
 /* функция смены background на hero */
-function changeBgndImg() {
-  if (refs.homeBtn.classList.value.includes('active')) {
-    refs.header.style.backgroundImage =
-      '../images/home/desktop/header-bg-desktop.jpg';
-    return;
-  }
-  if (refs.libraryBtn.classList.value.includes('active')) {
-    refs.header.style.backgroundImage =
-      './images/library/desktop/header-bg-desktop.jpg';
-    return;
-  }
-}
+// function changeBgndImg() {
+//   if (refs.homeBtn.classList.value.includes('active')) {
+//     refs.header.style.backgroundImage = '../images/home/desktop/header-bg-desktop.jpg';
+//     return;
+//   }
+//   if (refs.libraryBtn.classList.value.includes('active')) {
+//     refs.header.style.backgroundImage = './images/library/desktop/header-bg-desktop.jpg';
+//     return;
+//   }
+// }
 
 /* ф-ция смены visual-hiden на serch и кнопках Watched & Queued */
-function swapClassHiden() {
-  if (refs.searchForm.classList.value.includes('visually-hidden')) {
-    refs.searchForm.classList.remove('visually-hidden');
-    refs.libraryBtns.classList.add('visually-hidden');
-    return;
-  }
-  if (refs.libraryBtns.classList.value.includes('visually-hidden')) {
-    refs.searchForm.classList.add('visually-hidden');
-    refs.libraryBtns.classList.remove('visually-hidden');
-    return;
-  }
-}
-
-/* Функция смены класса active на кнопках HOME & LIBRARI */
-function swapClassActive() {
-  if (refs.homeBtn.classList.value.includes('active')) {
-    refs.homeBtn.classList.remove('active');
-    refs.libraryBtn.classList.add('active');
-    return;
-  }
-  if (refs.libraryBtn.classList.value.includes('active')) {
-    refs.homeBtn.classList.add('active');
-    refs.libraryBtn.classList.remove('active');
-    return;
-  }
-}
-
-/* Функция очистить фильмы в ДОМ */
-function cleanFilmCardsInDom() {
-  refs.listEl.innerHTML = '';
-}
-
-/* Функиция снятия слушателей при нажатии на HOME */
-
-function swapListenersOnPressHomeBtn() {
-  refs.homeBtn.removeEventListener('click', onClickHomeBtn);
-  refs.libraryBtn.addEventListener('click', onClickLibraryBtn);
-  refs.watchedBtn.removeEventListener('click', onClickWatchedBtn);
-  refs.queueBtn.removeEventListener('click', onClickQueuedBtn);
-  refs.searchForm.addEventListener('submit', searchHandler);
-}
-
-/* Функиция снятия слушателей при нажатии на LIBRARY */
-
-function swapListenersOnPressLibraryBtn() {
-  refs.homeBtn.addEventListener('click', onClickHomeBtn);
-  refs.libraryBtn.removeEventListener('click', onClickLibraryBtn);
-  refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
-  refs.queueBtn.addEventListener('click', onClickQueuedBtn);
+/* При нажатии на либрери */
+function tapibrary() {
+  refs.homeBtn.classList.remove('active');
+  refs.libraryBtn.classList.add('active');
+  refs.searchForm.classList.add('visually-hidden');
+  refs.libraryBtns.classList.remove('visually-hidden');
   refs.searchForm.removeEventListener('submit', searchHandler);
 }
-
-/* Функиция снятия слушателей при нажатии на WATCHED */
-
-function swapListenersOnPressWatchedBtn() {
-  refs.watchedBtn.removeEventListener('click', onClickWatchedBtn);
-  refs.queueBtn.addEventListener('click', onClickQueuedBtn);
-}
-
-/* Функиция снятия слушателей при нажатии на QUEUE */
-
-function swapListenersOnPressQueuedBtn() {
-  refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
-  refs.queueBtn.removeEventListener('click', onClickQueuedBtn);
+function tapHome() {
+  refs.homeBtn.classList.add('active');
+  refs.libraryBtn.classList.remove('active');
+  refs.searchForm.classList.remove('visually-hidden');
+  refs.libraryBtns.classList.add('visually-hidden');
 }
 
 /* Функция поиска */
