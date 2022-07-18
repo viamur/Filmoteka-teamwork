@@ -1,4 +1,8 @@
-import { renderWatchedList, rederTrandList } from './render-list';
+import {
+  renderWatchedList,
+  rederTrandList,
+  renderQueueList,
+} from './render-list';
 import { searchInput } from './pagination';
 
 const refs = {
@@ -9,6 +13,7 @@ const refs = {
   searchForm: document.querySelector('.js-search-form'),
   libraryBtns: document.querySelector('.js-library-btns'),
   listEl: document.querySelector('.js-list'),
+  header: document.querySelector('.js-header'),
 };
 
 refs.homeBtn.addEventListener('click', onClickHomeBtn);
@@ -17,16 +22,17 @@ refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
 refs.queueBtn.addEventListener('click', onClickQueuedBtn);
 refs.searchForm.addEventListener('submit', searchHandler);
 
-console.dir(refs.searchForm.classList.value.includes('visually-hidden'));
-console.dir(refs.libraryBtns.classList.value);
+console.dir(refs.header.style.backgroundImage);
+
 function onClickHomeBtn(e) {
   e.preventDefault();
+  swapClassActive();
   rederTrandList();
   swapClassHiden();
 }
 function onClickLibraryBtn(e) {
   e.preventDefault();
-  cleanFilmCardsInDom();
+  swapClassActive();
   renderWatchedList();
   swapClassHiden();
 }
@@ -36,21 +42,46 @@ function onClickWatchedBtn(e) {
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
+  renderQueueList();
 }
 
 /* Вспомогательные функции */
 
 /* функция смены background на hero */
+function changeBgndImg() {
+  if (refs.homeBtn.classList.value.includes('active')) {
+    return;
+  }
+  if (refs.libraryBtn.classList.value.includes('active')) {
+    return;
+  }
+}
 
 /* ф-ция смены visual-hiden на serch и кнопках Watched & Queued */
 function swapClassHiden() {
-  if (!refs.searchForm.classList.value.includes('visually-hidden')) {
+  if (refs.searchForm.classList.value.includes('visually-hidden')) {
     refs.searchForm.classList.remove('visually-hidden');
     refs.libraryBtns.classList.add('visually-hidden');
+    return;
   }
-  if (refs.searchForm.classList.value.includes('visually-hidden')) {
+  if (refs.libraryBtns.classList.value.includes('visually-hidden')) {
     refs.searchForm.classList.add('visually-hidden');
     refs.libraryBtns.classList.remove('visually-hidden');
+    return;
+  }
+}
+
+/* Функция смены класса active на кнопках HOME & LIBRARI */
+function swapClassActive() {
+  if (refs.homeBtn.classList.value.includes('active')) {
+    refs.homeBtn.classList.remove('active');
+    refs.libraryBtn.classList.add('active');
+    return;
+  }
+  if (refs.libraryBtn.classList.value.includes('active')) {
+    refs.homeBtn.classList.add('active');
+    refs.libraryBtn.classList.remove('active');
+    return;
   }
 }
 
@@ -58,6 +89,14 @@ function swapClassHiden() {
 function cleanFilmCardsInDom() {
   refs.listEl.innerHTML = '';
 }
+
+/* Функиция снятия слушателей при нажатии на HOME */
+
+/* Функиция снятия слушателей при нажатии на LIBRARY */
+
+/* Функиция снятия слушателей при нажатии на WATCHED */
+
+/* Функиция снятия слушателей при нажатии на QUEUE */
 
 /* Функция поиска */
 function searchHandler(e) {
