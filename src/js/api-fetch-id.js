@@ -37,6 +37,7 @@ export class ApiFetchId {
       );
 
       this.totalPages = respons.data.total_pages;
+      this.totalItems = respons.data.total_results;
 
       return respons.data;
     } catch (error) {

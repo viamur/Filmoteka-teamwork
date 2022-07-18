@@ -1,5 +1,7 @@
 import { renderWatchedList, rederTrandList } from './render-list';
 import { searchInput } from './pagination';
+import { takeWached } from './pagination';
+import { takeQueue } from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -33,9 +35,11 @@ function onClickLibraryBtn(e) {
 function onClickWatchedBtn(e) {
   e.preventDefault();
   renderWatchedList();
+  takeWached();
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
+  takeQueue();
 }
 
 /* Вспомогательные функции */
@@ -63,7 +67,7 @@ function cleanFilmCardsInDom() {
 function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
-  /* console.log('searchQuery.value :>> ', searchQuery.value); */
+  console.log('searchQuery.value :>> ', searchQuery.value);
   if (searchQuery.value.trim().length > 1) {
     // renderSearchList(searchQuery.value.trim());
     searchInput(searchQuery.value.trim());
