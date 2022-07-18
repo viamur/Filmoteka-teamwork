@@ -1,4 +1,6 @@
 import './js/modal';
+import './js/slider';
+import './js/trailer';
 import {
   rederTrandList,
   renderSearchList,
@@ -9,6 +11,8 @@ import './js/converting-data';
 import './js/search';
 import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+Loading.standard();
 import './js/back-to-top';
 import './js/home-library-btns';
 import { onClickHomeBtn, onClickWatchedBtn, onClickQueuedBtn } from './js/home-library-btns';
@@ -37,3 +41,4 @@ if (
 }
 // };
 // console.dir(window);
+window.onload = Loading.remove();

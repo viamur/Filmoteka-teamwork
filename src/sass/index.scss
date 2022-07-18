@@ -11,8 +11,10 @@
 @import './base/hidden';
 
 @import './components/modal';
-@import './components/movie';
+@import './components/slider';
 
+@import './components/movie';
+@import './components/_trailer';
 @import './layout/films-list';
 @import './layout/footer';
 @import './layout/header';
