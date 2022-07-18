@@ -2,7 +2,7 @@ import makeSearchGallery from '../partials/hbs/search-film-card.hbs';
 import makeLibraryGallery from '../partials/hbs/library-film-card.hbs';
 import { workLocStorage } from './local-storage';
 import { newDataTrand, newDataSearch, newDataId, api } from './converting-data';
-import { searchInput } from './pagination';
+
 /* в этом js для обращения к api запроса используем из import выше */
 
 const listEl = document.querySelector('.js-list');
@@ -15,7 +15,7 @@ const pageOne = () => {
 const rederTrandList = () => {
   listEl.innerHTML = '';
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_HOME);
-  newDataTrand().then(data => {
+  return newDataTrand().then(data => {
     listEl.innerHTML = makeSearchGallery(data);
   });
 };
@@ -25,12 +25,13 @@ const renderSearchList = query => {
   listEl.innerHTML = '';
   api.query = query;
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_HOME);
-  newDataSearch().then(data => {
+  return newDataSearch().then(data => {
     const errSpan = document.querySelector('.js-search-warn');
     errSpan.classList.add('visually-hidden');
     console.log(data);
     const container = document.querySelector('.tui-pagination');
     // searchInput(query);
+    listEl.innerHTML = makeSearchGallery(data);
     container.classList.remove('is-hidden');
     if (data.length / 20 < 1) {
       container.classList.add('is-hidden');
@@ -43,7 +44,6 @@ const renderSearchList = query => {
       renderNoFound();
       return;
     }
-    listEl.innerHTML = makeSearchGallery(data);
   });
 };
 

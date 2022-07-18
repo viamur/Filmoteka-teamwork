@@ -4,6 +4,8 @@ import {
   renderQueueList,
 } from './render-list';
 import { searchInput } from './pagination';
+import { takeWached } from './pagination';
+import { takeQueue } from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -44,6 +46,7 @@ function onClickWatchedBtn(e) {
   e.preventDefault();
   swapListenersOnPressWatchedBtn();
   renderWatchedList();
+  takeWached();
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
@@ -138,7 +141,7 @@ function swapListenersOnPressQueuedBtn() {
 function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
-  /* console.log('searchQuery.value :>> ', searchQuery.value); */
+  console.log('searchQuery.value :>> ', searchQuery.value);
   if (searchQuery.value.trim().length > 1) {
     // renderSearchList(searchQuery.value.trim());
     searchInput(searchQuery.value.trim());

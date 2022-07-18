@@ -6,19 +6,20 @@ import {
   renderQueueList,
 } from './js/render-list';
 import './js/converting-data';
-import './js/pagination';
 import './js/search';
 import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
 import './js/back-to-top';
 import './js/home-library-btns';
 
+import { searchTrand } from './js/pagination';
+
 if (
   workLocStorage.getUserLocationPage() === undefined ||
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_HOME
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
-  // rederTrandList();
+  searchTrand();
 } else if (
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
 ) {
