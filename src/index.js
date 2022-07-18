@@ -10,6 +10,8 @@ import './js/pagination';
 import './js/search';
 import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
+import './js/back-to-top';
+import './js/home-library-btns';
 
 if (
   workLocStorage.getUserLocationPage() === undefined ||
