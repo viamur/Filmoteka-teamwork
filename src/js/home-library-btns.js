@@ -1,5 +1,14 @@
-import { renderWatchedList, rederTrandList, renderQueueList } from './render-list';
-import { searchInput, searchQueue, searchWatched, searchTrand } from './pagination';
+import {
+  renderWatchedList,
+  rederTrandList,
+  renderQueueList,
+} from './render-list';
+import {
+  searchInput,
+  searchQueue,
+  searchWatched,
+  searchTrand,
+} from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -55,6 +64,7 @@ export function onClickQueuedBtn(e) {
 /* ф-ция смены visual-hiden на serch и кнопках Watched & Queued */
 /* При нажатии на либрери */
 function tapibrary() {
+  refs.header.classList.add('js-library');
   refs.homeBtn.classList.remove('active');
   refs.libraryBtn.classList.add('active');
   refs.searchForm.classList.add('visually-hidden');
@@ -62,6 +72,7 @@ function tapibrary() {
   refs.searchForm.removeEventListener('submit', searchHandler);
 }
 function tapHome() {
+  refs.header.classList.remove('js-library');
   refs.homeBtn.classList.add('active');
   refs.libraryBtn.classList.remove('active');
   refs.searchForm.classList.remove('visually-hidden');

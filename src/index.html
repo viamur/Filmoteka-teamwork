@@ -17,26 +17,37 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
     />
-    <link rel="icon" type="image/svg+xml" href="./images/favicon/safari-pinned-tab.svg" />
-    <link rel="shortcut icon" type="image/png" href="./images/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./images/favicon/safari-pinned-tab.svg"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./images/favicon/favicon.ico"
+    />
   </head>
 
   <body>
-    <!-- <header> -->
+    <div class="wrapper">
+      <!-- <header> -->
 
-    <include src="./partials/html/header.html"></include>
-    <include src="./partials/html/slider.html"></include>
-    <!-- </header> -->
-    <main>
-      <include src="./partials/html/movie-library.html"></include>
-      <include src="./partials/html/back-to-top.html"></include>
-    </main>
-    <!-- <footer> -->
-    <include src="./partials/html/footer.html"></include>
+      <include src="./partials/html/header.html"></include>
+      <include src="./partials/html/slider.html"></include>
+      <!-- </header> -->
+      <main>
+        <include src="./partials/html/movie-library.html"></include>
+        <include src="./partials/html/back-to-top.html"></include>
+      </main>
+      <!-- <footer> -->
+      <include src="./partials/html/footer.html"></include>
 
-    <include src="./partials/html/modal-footer.html"></include>
-    <include src="./partials/html/modal-film.html"></include>
-    <!-- </footer> -->
+      <include src="./partials/html/modal-footer.html"></include>
+      <include src="./partials/html/modal-film.html"></include>
+      <!-- </footer> -->
+    </div>
     <script type="module" src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>
