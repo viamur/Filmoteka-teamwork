@@ -9,7 +9,7 @@ const glide = new Glide('.glide', {
   type: 'slider',
   startAt: 0,
   perView: 8,
-  autoplay: 3000,
+  autoplay: 1000,
   hoverpause: true,
   bound: true,
 });
