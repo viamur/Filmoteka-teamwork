@@ -26,22 +26,26 @@ console.dir(refs.header.style.backgroundImage);
 
 function onClickHomeBtn(e) {
   e.preventDefault();
+  swapListenersOnPressHomeBtn();
   swapClassActive();
   rederTrandList();
   swapClassHiden();
 }
 function onClickLibraryBtn(e) {
   e.preventDefault();
+  swapListenersOnPressLibraryBtn();
   swapClassActive();
   renderWatchedList();
   swapClassHiden();
 }
 function onClickWatchedBtn(e) {
   e.preventDefault();
+  swapListenersOnPressWatchedBtn();
   renderWatchedList();
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
+  swapListenersOnPressQueuedBtn();
   renderQueueList();
 }
 
@@ -92,11 +96,37 @@ function cleanFilmCardsInDom() {
 
 /* Функиция снятия слушателей при нажатии на HOME */
 
+function swapListenersOnPressHomeBtn() {
+  refs.homeBtn.removeEventListener('click', onClickHomeBtn);
+  refs.libraryBtn.addEventListener('click', onClickLibraryBtn);
+  refs.watchedBtn.removeEventListener('click', onClickWatchedBtn);
+  refs.queueBtn.removeEventListener('click', onClickQueuedBtn);
+  refs.searchForm.addEventListener('submit', searchHandler);
+}
+
 /* Функиция снятия слушателей при нажатии на LIBRARY */
+
+function swapListenersOnPressLibraryBtn() {
+  refs.homeBtn.addEventListener('click', onClickHomeBtn);
+  refs.libraryBtn.removeEventListener('click', onClickLibraryBtn);
+  refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
+  refs.queueBtn.addEventListener('click', onClickQueuedBtn);
+  refs.searchForm.removeEventListener('submit', searchHandler);
+}
 
 /* Функиция снятия слушателей при нажатии на WATCHED */
 
+function swapListenersOnPressWatchedBtn() {
+  refs.watchedBtn.removeEventListener('click', onClickWatchedBtn);
+  refs.queueBtn.addEventListener('click', onClickQueuedBtn);
+}
+
 /* Функиция снятия слушателей при нажатии на QUEUE */
+
+function swapListenersOnPressQueuedBtn() {
+  refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
+  refs.queueBtn.removeEventListener('click', onClickQueuedBtn);
+}
 
 /* Функция поиска */
 function searchHandler(e) {
