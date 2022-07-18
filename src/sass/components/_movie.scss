@@ -1,8 +1,8 @@
 main {
   /* Согласовать */
-  // display: flex;
-  // justify-content: center;
-  // background-color: var(--main-bg-color);
+  /* display: flex;
+  justify-content: center;
+  background-color: var(--main-bg-color); */
 }
 
 .library {
@@ -77,8 +77,7 @@ main {
     margin-bottom: 10px;
     border-radius: 5px;
     transform: scale(1);
-    transition: transform var(--transition-movie),
-      box-shadow var(--transition-movie);
+    transition: transform var(--transition-movie), box-shadow var(--transition-movie);
     .movie:hover &,
     .movie:focus & {
       transform: scale(1.03);
