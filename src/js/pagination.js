@@ -1,9 +1,12 @@
 import Pagination from 'tui-pagination';
 import { api } from './converting-data';
-import { rederTrandList } from './render-list';
-import { renderSearchList } from './render-list';
-import { renderWatchedList } from './render-list';
-import { renderQueueList } from './render-list';
+import {
+  rederTrandList,
+  renderQueueList,
+  renderWatchedList,
+  renderSearchList,
+} from './render-list';
+
 const container = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(container, {
@@ -20,7 +23,7 @@ const pagination = new Pagination(container, {
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 });
-
+// пагинация по инпуту
 async function fetchPerPageSearch(page) {
   api.page = page;
   await renderSearchList(api.query);
@@ -37,7 +40,7 @@ export async function searchInput(query) {
 
   pagination.reset(api.totalItems);
 }
-
+// пагинация по тренду
 async function fetchPerPageTrand(page) {
   api.page = page;
   await rederTrandList();
@@ -50,6 +53,40 @@ export async function searchTrand() {
     fetchPerPageTrand(currentPage);
   });
   await fetchPerPageTrand(1);
+
+  pagination.reset(api.totalItems);
+}
+
+// пагинация по queue
+async function fetchPerPageQueue(page) {
+  api.page = page;
+  await renderQueueList();
+}
+export async function searchQueue() {
+  api.page = 1;
+
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    fetchPerPageQueue(currentPage);
+  });
+  await fetchPerPageQueue(1);
+
+  pagination.reset(api.totalItems);
+}
+
+// пагинация по Watched
+async function fetchPerPageWatched(page) {
+  api.page = page;
+  await renderWatchedList();
+}
+export async function searchWatched() {
+  api.page = 1;
+
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    fetchPerPageWatched(currentPage);
+  });
+  await fetchPerPageWatched(1);
 
   pagination.reset(api.totalItems);
 }

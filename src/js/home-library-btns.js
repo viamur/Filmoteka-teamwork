@@ -1,7 +1,5 @@
 import { renderWatchedList, rederTrandList } from './render-list';
-import { searchInput } from './pagination';
-import { takeWached } from './pagination';
-import { takeQueue } from './pagination';
+import { searchInput, searchQueue, searchWatched } from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -29,17 +27,17 @@ function onClickHomeBtn(e) {
 function onClickLibraryBtn(e) {
   e.preventDefault();
   cleanFilmCardsInDom();
-  renderWatchedList();
+  // renderWatchedList();
   swapClassHiden();
 }
 function onClickWatchedBtn(e) {
   e.preventDefault();
   renderWatchedList();
-  takeWached();
+  searchWatched();
 }
 function onClickQueuedBtn(e) {
   e.preventDefault();
-  takeQueue();
+  searchQueue();
 }
 
 /* Вспомогательные функции */
