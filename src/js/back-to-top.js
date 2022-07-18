@@ -23,10 +23,11 @@ function backToTop() {
   let button = document.querySelector('.back-to-top');
 
   window.addEventListener('scroll', e => {
+    console.log('e :>> ', e);
     if (this.scrollTop() >= 50) {
-      button.fadeIn();
+      button.style = 'display: block';
     } else {
-      button.fadeOut();
+      button.style = 'display: none';
     }
   });
 
