@@ -38,7 +38,7 @@ const createTrailerLink = elementRef => {
       'afterbegin',
       `<button
         type="button"
-        class="lightbox__btn"
+        class="trlightbox__btn"
         data-action="close-lightbox"
         ></button>
     `

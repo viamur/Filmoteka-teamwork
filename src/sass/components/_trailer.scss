@@ -1,11 +1,11 @@
-.btn-id {
+.trbtn-id {
   position: relative;
 }
 
 .btn-youtube,
 .btn-youtube-slider {
   position: absolute;
-  top: 17px;
+  top: 210px;
   left: 0px;
   z-index: 1;
   width: 275px;
@@ -30,7 +30,7 @@
   z-index: 5;
 }
 
-.card__film .overlay-btn-youtube-text {
+.trcard__film .overlay-btn-youtube-text {
   position: absolute;
   display: flex;
   align-items: center;
@@ -53,15 +53,15 @@
   transition: all 400ms ease-in;
 }
 
-.card__film:hover .overlay-btn-youtube-text {
+.trcard__film:hover .overlay-btn-youtube-text {
   display: flex;
   opacity: 1;
   transform: translateX(-63%);
 }
 
-.lightbox__btn {
+.trlightbox__btn {
   position: fixed;
-  top: 100px;
+  top: 25%;
   right: calc(((100vw - 700px) / 2));
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@
   //   transition: all 300ms ease-in;
 }
 
-.lightbox__btn:hover,
-.lightbox__btn:focus {
+.trlightbox__btn:hover,
+.trlightbox__btn:focus {
   background-color: #950b16;
 }
