@@ -11,11 +11,7 @@ import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
 import './js/back-to-top';
 import './js/home-library-btns';
-import {
-  onClickHomeBtn,
-  onClickWatchedBtn,
-  onClickQueuedBtn,
-} from './js/home-library-btns';
+import { onClickHomeBtn, onClickWatchedBtn, onClickQueuedBtn } from './js/home-library-btns';
 import { searchTrand } from './js/pagination';
 
 // window.onload = () => {
@@ -25,15 +21,11 @@ if (
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
   // onClickHomeBtn();
-  searchTrand();
-} else if (
-  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
-) {
+  onClickHomeBtn();
+} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
   /* функиця, отрисовка вкладки QUEUE */
   onClickQueuedBtn();
-} else if (
-  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED
-) {
+} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
   /* функция, отрисовки вкладки  WATCHED */
   onClickWatchedBtn();
 } else {
