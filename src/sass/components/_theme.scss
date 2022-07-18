@@ -1,0 +1,161 @@
+body.light-theme {
+    background-color: #c8c5b991;
+    // background-image: url(../images/abstraction.png);
+    // background-image: url(../images/popcorn-png.png);
+    // background-size: cover;
+    // background-attachment: fixed;
+    // background-position: center;
+    color: #333333;
+}
+
+body.dark-theme {
+    background-color: #292929;
+    // background-image: url(../images/abstraction.png);
+    // background-image: url(../images/popcorn-png.png);
+    // background-size: cover;
+    // background-attachment: fixed;
+    // background-position: center;
+
+    color: #fff;
+
+    & .arrowLeft,
+    .arrowRight {
+        background-color: #252525;
+    }
+
+    & .arrowLeft:hover,
+    .arrowRight:hover {
+        transition-duration: 300ms;
+        background-color: #ff6b01;
+        border-radius: 5px;
+    }
+}
+
+// .toolbar {
+//     display: flex;
+//     justify-content: flex-end;
+// }
+
+/* THEME SWITCH */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    // position: absolute;
+    right: 5px;
+    bottom: -5px;
+   
+
+    @media screen and (max-width: 767px) {
+        bottom: -30px;
+    }
+}
+
+.theme-switch__icon-sun {
+    color: #ff6b01;
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    margin-left: 8px;
+    width: 30px;
+        height: 30px;
+        background-image: url(../images/svg/sun.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+}
+
+.theme-switch__icon-moon {
+    color: currentColor;
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.theme-switch__control {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    border-radius: 50em;
+    padding: 3px 0;
+}
+
+.theme-switch__toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+.theme-switch__track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    user-select: none;
+    background-color: rgb(39, 39, 39);
+    border-radius: inherit;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.theme-switch__marker {
+    position: relative;
+    background-color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    transform: translateX(3px);
+    transition: transform 250ms var(--timing-function);
+}
+
+.theme-switch__toggle:checked+.theme-switch__track {
+    background-color: #d3d3d4;
+}
+
+.theme-switch__toggle:checked~.theme-switch__marker {
+    transform: translateX(35px);
+}
+
+.theme-switch__toggle:focus+.theme-switch__track,
+.theme-switch__toggle:active+.theme-switch__track {
+    box-shadow: 0 0 0 3px #2196f3;
+}
+
+@media screen and (max-width: 767px) {
+    .theme-switch__icon-sun {
+        height: 14px;
+        width: 14px;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+    .theme-switch__icon-moon {
+        height: 14px;
+        width: 14px;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+    .theme-switch__control {
+        width: 52px;
+        height: 20px;
+    }
+
+    .theme-switch__marker {
+        width: 14px;
+        height: 14px;
+    }
+}
