@@ -3,9 +3,12 @@ import {
   rederTrandList,
   renderQueueList,
 } from './render-list';
-import { searchInput } from './pagination';
-import { takeWached } from './pagination';
-import { takeQueue } from './pagination';
+import {
+  searchInput,
+  searchQueue,
+  searchWatched,
+  searchTrand,
+} from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -26,32 +29,35 @@ refs.searchForm.addEventListener('submit', searchHandler);
 
 console.dir(refs.header.style.backgroundImage);
 
-function onClickHomeBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressHomeBtn();
+export function onClickHomeBtn(e) {
+  // e.preventDefault();
+  // swapListenersOnPressHomeBtn();
 
   swapClassActive();
-  rederTrandList();
+  searchTrand();
+  // rederTrandList();
   swapClassHiden();
 }
 function onClickLibraryBtn(e) {
-  e.preventDefault();
-  swapListenersOnPressLibraryBtn();
-
+  // e.preventDefault();
+  // swapListenersOnPressLibraryBtn();
+  // onClickWatchedBtn(e);
+  searchWatched();
   swapClassActive();
-  renderWatchedList();
+  // renderWatchedList();
   swapClassHiden();
 }
-function onClickWatchedBtn(e) {
-  e.preventDefault();
+export function onClickWatchedBtn(e) {
+  // e.preventDefault();
   swapListenersOnPressWatchedBtn();
-  renderWatchedList();
+  // renderWatchedList();
   searchWatched();
 }
-function onClickQueuedBtn(e) {
-  e.preventDefault();
+export function onClickQueuedBtn(e) {
+  // e.preventDefault();
   swapListenersOnPressQueuedBtn();
-  renderQueueList();
+  // renderQueueList();
+  searchQueue();
 }
 
 /* Вспомогательные функции */

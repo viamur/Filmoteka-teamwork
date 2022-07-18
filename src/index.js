@@ -11,25 +11,31 @@ import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
 import './js/back-to-top';
 import './js/home-library-btns';
-
+import {
+  onClickHomeBtn,
+  onClickWatchedBtn,
+  onClickQueuedBtn,
+} from './js/home-library-btns';
 import { searchTrand } from './js/pagination';
 
+// window.onload = () => {
 if (
   workLocStorage.getUserLocationPage() === undefined ||
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_HOME
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
+  // onClickHomeBtn();
   searchTrand();
 } else if (
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
 ) {
   /* функиця, отрисовка вкладки QUEUE */
-  renderQueueList();
+  onClickQueuedBtn();
 } else if (
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED
 ) {
   /* функция, отрисовки вкладки  WATCHED */
-  renderWatchedList();
+  onClickWatchedBtn();
 } else {
   const ulEl = document.querySelector('.js-list');
   ulEl.innerHTML = `  <li>
@@ -37,3 +43,4 @@ if (
   </li>`;
   console.log('Ошибка в index.js, по поиску где находился user');
 }
+// };
