@@ -27,6 +27,7 @@ console.dir(refs.header.style.backgroundImage);
 function onClickHomeBtn(e) {
   e.preventDefault();
   swapListenersOnPressHomeBtn();
+
   swapClassActive();
   rederTrandList();
   swapClassHiden();
@@ -34,6 +35,7 @@ function onClickHomeBtn(e) {
 function onClickLibraryBtn(e) {
   e.preventDefault();
   swapListenersOnPressLibraryBtn();
+
   swapClassActive();
   renderWatchedList();
   swapClassHiden();
@@ -54,9 +56,13 @@ function onClickQueuedBtn(e) {
 /* функция смены background на hero */
 function changeBgndImg() {
   if (refs.homeBtn.classList.value.includes('active')) {
+    refs.header.style.backgroundImage =
+      '../images/home/desktop/header-bg-desktop.jpg';
     return;
   }
   if (refs.libraryBtn.classList.value.includes('active')) {
+    refs.header.style.backgroundImage =
+      './images/library/desktop/header-bg-desktop.jpg';
     return;
   }
 }
