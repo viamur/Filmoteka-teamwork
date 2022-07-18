@@ -18,8 +18,7 @@ const pagination = new Pagination(container, {
     currentPage: '<a class="page-btn is-selected">{{page}}</a>',
     page: '<a class="page-btn">{{page}}</a>',
     moveButton: `<button class="move-btn move-btn-{{type}}"></button>`,
-    disabledMoveButton:
-      '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
+    disabledMoveButton: '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 });
@@ -29,6 +28,7 @@ async function fetchPerPageSearch(page) {
   await renderSearchList(api.query);
 }
 export async function searchInput(query) {
+  pagination.setItemsPerPage(20);
   api.page = 1;
   api.query = query;
 
@@ -46,6 +46,7 @@ async function fetchPerPageTrand(page) {
   await rederTrandList();
 }
 export async function searchTrand() {
+  pagination.setItemsPerPage(20);
   api.page = 1;
 
   pagination.on('afterMove', event => {
@@ -57,12 +58,25 @@ export async function searchTrand() {
   pagination.reset(api.totalItems);
 }
 
+function forWatchedAndQueue() {
+  const windowWidthPag = window.innerWidth;
+  if (windowWidthPag < 768) {
+    pagination.setItemsPerPage(4);
+  }
+  if (windowWidthPag >= 768 && windowWidthPag < 1280) {
+    pagination.setItemsPerPage(8);
+  }
+  if (windowWidthPag >= 1280) {
+    pagination.setItemsPerPage(9);
+  }
+}
 // пагинация по queue
 async function fetchPerPageQueue(page) {
   api.page = page;
   await renderQueueList();
 }
 export async function searchQueue() {
+  forWatchedAndQueue();
   api.page = 1;
 
   pagination.on('afterMove', event => {
@@ -80,6 +94,7 @@ async function fetchPerPageWatched(page) {
   await renderWatchedList();
 }
 export async function searchWatched() {
+  forWatchedAndQueue();
   api.page = 1;
 
   pagination.on('afterMove', event => {

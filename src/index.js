@@ -36,3 +36,4 @@ if (
   console.log('Ошибка в index.js, по поиску где находился user');
 }
 // };
+// console.dir(window);

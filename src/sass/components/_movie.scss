@@ -77,8 +77,7 @@ main {
     margin-bottom: 10px;
     border-radius: 5px;
     transform: scale(1);
-    transition: transform var(--transition-movie),
-      box-shadow var(--transition-movie);
+    transition: transform var(--transition-movie), box-shadow var(--transition-movie);
     .movie:hover &,
     .movie:focus & {
       transform: scale(1.03);
@@ -150,5 +149,14 @@ main {
     @include mq(desk) {
       height: 20px;
     }
+  }
+}
+.library__title {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: var(--text-color-black);
+  letter-spacing: 1.5px;
+  @include mq(tab) {
+    font-size: 20px;
   }
 }

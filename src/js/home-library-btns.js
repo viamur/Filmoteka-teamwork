@@ -10,32 +10,46 @@ const refs = {
   libraryBtns: document.querySelector('.js-library-btns'),
   listEl: document.querySelector('.js-list'),
   header: document.querySelector('.js-header'),
+  logo: document.querySelector('.header__link'),
+  h2: document.querySelector('.library__title'),
+  span: document.querySelector('.library__span'),
+  pagination: document.querySelector('.tui-pagination'),
 };
 
 refs.homeBtn.addEventListener('click', onClickHomeBtn);
 refs.libraryBtn.addEventListener('click', onClickLibraryBtn);
 refs.watchedBtn.addEventListener('click', onClickWatchedBtn);
 refs.queueBtn.addEventListener('click', onClickQueuedBtn);
+refs.logo.addEventListener('click', onClickLogo);
 
-console.dir(refs.header.style.backgroundImage);
+function onClickLogo(e) {
+  e.preventDefault();
+  onClickHomeBtn();
+}
 
 export function onClickHomeBtn(e) {
   refs.searchForm.addEventListener('submit', searchHandler);
+  refs.queueBtn.classList.remove('active');
+  refs.watchedBtn.classList.remove('active');
 
-  searchTrand();
   tapHome();
+  searchTrand();
 }
 function onClickLibraryBtn(e) {
-  onClickWatchedBtn();
   tapibrary();
+  onClickWatchedBtn();
 }
 export function onClickWatchedBtn(e) {
-  searchWatched();
+  refs.watchedBtn.classList.add('active');
+  refs.queueBtn.classList.remove('active');
   tapibrary();
+  searchWatched();
 }
 export function onClickQueuedBtn(e) {
-  searchQueue();
+  refs.watchedBtn.classList.remove('active');
+  refs.queueBtn.classList.add('active');
   tapibrary();
+  searchQueue();
 }
 
 /* Вспомогательные функции */
@@ -60,21 +74,26 @@ function tapibrary() {
   refs.searchForm.classList.add('visually-hidden');
   refs.libraryBtns.classList.remove('visually-hidden');
   refs.searchForm.removeEventListener('submit', searchHandler);
+  refs.h2.classList.add('visually-hidden');
+  refs.pagination.classList.add('is-hidden');
 }
 function tapHome() {
   refs.homeBtn.classList.add('active');
   refs.libraryBtn.classList.remove('active');
   refs.searchForm.classList.remove('visually-hidden');
   refs.libraryBtns.classList.add('visually-hidden');
+  refs.h2.classList.add('visually-hidden');
+  refs.pagination.classList.add('is-hidden');
 }
 
 /* Функция поиска */
 function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
-  console.log('searchQuery.value :>> ', searchQuery.value);
   if (searchQuery.value.trim().length > 1) {
-    // renderSearchList(searchQuery.value.trim());
     searchInput(searchQuery.value.trim());
+    refs.span.textContent = searchQuery.value.trim();
+    refs.h2.classList.remove('visually-hidden');
+    refs.searchForm.reset();
   }
 }
