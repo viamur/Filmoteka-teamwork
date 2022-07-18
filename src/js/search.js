@@ -1,4 +1,4 @@
-import { renderSearchList } from './render-list';
+/* import { renderSearchList } from './render-list';
 import Notiflix from 'notiflix';
 import { searchInput } from './pagination';
 
@@ -9,11 +9,11 @@ const gallery = document.querySelector('.library__list');
 function searchHandler(e) {
   e.preventDefault();
   const { searchQuery } = e.target.elements;
-  /* console.log('searchQuery.value :>> ', searchQuery.value); */
+ // console.log('searchQuery.value :>> ', searchQuery.value); 
   if (searchQuery.value.trim().length > 1) {
     // renderSearchList(searchQuery.value.trim());
     searchInput(searchQuery.value.trim());
   }
 }
 
-formRef.addEventListener('submit', searchHandler);
+formRef.addEventListener('submit', searchHandler); */

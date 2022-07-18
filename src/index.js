@@ -14,6 +14,9 @@ import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.standard();
+import './js/back-to-top';
+import './js/home-library-btns';
+
 if (
   workLocStorage.getUserLocationPage() === undefined ||
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_HOME
