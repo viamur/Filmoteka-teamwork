@@ -1,6 +1,6 @@
 /* Установить JQuery - npm install jquery */
 
-/* function backToTop() {
+function backToTop() {
   let button = $('.back-to-top');
 
   $(window).on('scroll', () => {
@@ -17,27 +17,31 @@
   });
 }
 
-backToTop(); */
+backToTop();
+
+/* import throttle from 'lodash.throttle';
 
 function backToTop() {
   let button = document.querySelector('.back-to-top');
 
-  window.addEventListener('scroll', e => {
-    console.log('e :>> ', e);
-    if (this.scrollTop() >= 50) {
+  window.addEventListener('scroll', throttle(onScroll, 200));
+
+  function onScroll(e) {
+    if (e) {
       button.style = 'display: block';
     } else {
       button.style = 'display: none';
     }
-  });
+    console.log('e :>> ', e);
+  }
 
   button.addEventListener('click', e => {
     e.preventDefault();
     window.scrollTo({
-      top: 1000,
+      top: 0,
       behavior: 'smooth',
     });
   });
 }
 
-backToTop();
+backToTop(); */
