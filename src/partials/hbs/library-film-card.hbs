@@ -4,7 +4,7 @@
       <img
         class='movie__img'
         {{#if this.poster_path}}
-        src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
         {{else}}
         src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
         {{/if}}
