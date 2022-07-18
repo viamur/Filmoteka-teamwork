@@ -1,6 +1,6 @@
 /* Установить JQuery - npm install jquery */
 
-function backToTop() {
+/* function backToTop() {
   let button = $('.back-to-top');
 
   $(window).on('scroll', () => {
@@ -14,6 +14,28 @@ function backToTop() {
   button.on('click', e => {
     e.preventDefault();
     $('html').animate({ scrollTop: 0 }, 1000);
+  });
+}
+
+backToTop(); */
+
+function backToTop() {
+  let button = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', e => {
+    if (this.scrollTop() >= 50) {
+      button.fadeIn();
+    } else {
+      button.fadeOut();
+    }
+  });
+
+  button.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 1000,
+      behavior: 'smooth',
+    });
   });
 }
 
