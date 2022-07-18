@@ -14,11 +14,13 @@ footerBackdrop.addEventListener('click', onFooterBackdropClick);
 function onOpenFooterModal() {
   window.addEventListener('keydown', onEscKeyPress);
   document.body.classList.add('show-footer-modal');
+  footerBackdrop.style = 'display:flex';
 }
 
 function onCloseFooterModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   document.body.classList.remove('show-footer-modal');
+  footerBackdrop.style = 'display:none';
 }
 
 function onFooterBackdropClick(event) {
