@@ -8,7 +8,6 @@ import {
   renderQueueList,
 } from './js/render-list';
 import './js/converting-data';
-import './js/pagination';
 import './js/search';
 import { workLocStorage } from './js/local-storage';
 import './js/footer-modal';
@@ -16,19 +15,23 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.standard();
 import './js/back-to-top';
 import './js/home-library-btns';
+import { onClickHomeBtn, onClickWatchedBtn, onClickQueuedBtn } from './js/home-library-btns';
+import { searchTrand } from './js/pagination';
 
+// window.onload = () => {
 if (
   workLocStorage.getUserLocationPage() === undefined ||
   workLocStorage.getUserLocationPage() === workLocStorage.VALUE_HOME
 ) {
   /* функция, отрисовка главной страницы трендовые фильмы */
-  // rederTrandList();
+  // onClickHomeBtn();
+  onClickHomeBtn();
 } else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
   /* функиця, отрисовка вкладки QUEUE */
-  renderQueueList();
+  onClickQueuedBtn();
 } else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
   /* функция, отрисовки вкладки  WATCHED */
-  renderWatchedList();
+  onClickWatchedBtn();
 } else {
   const ulEl = document.querySelector('.js-list');
   ulEl.innerHTML = `  <li>

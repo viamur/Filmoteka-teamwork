@@ -59,7 +59,7 @@ galleryItems = [
   },
   {
     preview:
-      'https://ca.slack-edge.com/T032KVART1A-U039L5ANENQ-16b431ea84d8-512',
+      'https://ca.slack-edge.com/T032KVART1A-U039L5ANENQ-9b3e7be0b070-512',
     name: 'Alexey Demidov',
     title: 'Developer',
   },
