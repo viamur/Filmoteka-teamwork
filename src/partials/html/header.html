@@ -8,112 +8,44 @@
         <span class="header__title">Filmoteka</span>
       </a>
       <!-- NAVBAR -->
-      <nav class="z-depth-0 nav">
-        <div class="nav-wrapper container">
-          <ul id="nav-mobile" class="nav__list right hide-on-med-and-down">
-            <li class="nav__item logged-in" style="display: none">
-              <button class="nav__btn modal-trigger" data-target="modal-account" type="button">
-                Account
-              </button>
-            </li>
-            <li class="nav__item logged-in" style="display: none">
-              <button class="nav__btn" id="logout" type="button">Logout</button>
-            </li>
-            <li class="nav__item active">
-              <button class="nav__btn active js-nav-btn js-home-btn" type="button">HOME</button>
-            </li>
-            <li class="nav__item logged-in" style="display: none">
-              <button class="nav__btn js-nav-btn js-library-btn modal-trigger" type="button">
-                MY LIBRARY
-              </button>
-            </li>
-            <li class="nav__item logged-out" style="display: none">
-              <button class="nav__btn modal-trigger" data-target="modal-login" type="button">
-                Login
-              </button>
-            </li>
-            <li class="nav__item logged-out" style="display: none">
-              <button class="nav__btn modal-trigger" data-target="modal-signup" type="button">
-                Sign up
-              </button>
-            </li>
-          </ul>
-        </div>
       <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item active">
-            <button class="nav__btn active js-nav-btn js-home-btn" type="button">
-              HOME
+        <ul id="nav-mobile" class="right nav__list">
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-account" type="button">
+              Account
             </button>
           </li>
-          <li class="nav__item">
-            <button class="nav__btn js-nav-btn js-library-btn" type="button">
-              MY LIBRARY
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn" id="logout" type="button">Logout</button>
+          </li>
+          <li class="nav__item active">
+            <button class="nav__btn active js-nav-btn js-home-btn" type="button">HOME</button>
+          </li>
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn js-nav-btn js-library-btn" type="button">MY LIBRARY</button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-login" type="button">
+              Login
+            </button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-signup" type="button">
+              Sign up
             </button>
           </li>
         </ul>
       </nav>
 
-      <!-- SIGN UP MODAL -->
-      <div id="modal-signup" class="modal">
-        <div class="modal-content">
-          <h4>Sign up</h4>
-          <br />
-          <form id="signup-form">
-            <div class="input-field">
-              <input type="email" id="signup-email" required />
-              <label for="signup-email">Email address</label>
-            </div>
-            <div class="input-field">
-              <input type="password" id="signup-password" required />
-              <label for="signup-password">Choose password</label>
-            </div>
-            <div class="input-field">
-              <input type="text" id="signup-bio" required />
-              <label for="signup-bio">One Line Bio</label>
-            </div>
-            <button class="btn yellow darken-2 z-depth-0">Sign up</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- LOGIN MODAL -->
-      <div id="modal-login" class="modal">
-        <div class="modal-content">
-          <h4>Login</h4>
-          <br />
-          <form id="login-form">
-            <div class="input-field">
-              <input type="email" id="login-email" required />
-              <label for="login-email">Email address</label>
-            </div>
-            <div class="input-field">
-              <input type="password" id="login-password" required />
-              <label for="login-password">Your password</label>
-            </div>
-            <button class="btn yellow darken-2 z-depth-0">Login</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- ACCOUNT MODAL -->
-      <div id="modal-account" class="modal">
-        <div class="modal-content center-align">
-          <h4>Account details</h4>
-          <br />
-          <div class="account-details"></div>
-        </div>
-      </div>
-
-      <!-- CREATE GUIDE MODAL -->
-
       <!-- GUIDE LIST -->
-      <div class="container" style="margin-top: 40px">
-        <ul class="collapsible z-depth-0 guides" style="border: none"></ul>
-      </div>
     </div>
     <form class="search__form js-search-form" autocomplete="off">
-      <input class="search__input js-search-input" type="text" name="searchQuery" placeholder="Movie search" />
+      <input
+        class="search__input js-search-input"
+        type="text"
+        name="searchQuery"
+        placeholder="Movie search"
+      />
       <button class="search__btn js-search-btn" type="submit">
         <svg class="search__icon" width="12" height="12">
           <use href="./images/svg/symbol-defs.svg#icon-search"></use>
@@ -126,14 +58,10 @@
     <div class="lib-btns js-library-btns visually-hidden">
       <ul class="lib-btns__list">
         <li class="lib-btns__item">
-          <button class="lib-btns__btn js-watched-btn" type="button">
-            WATCHED
-          </button>
+          <button class="lib-btns__btn js-watched-btn active" type="button">WATCHED</button>
         </li>
         <li class="lib-btns__item">
-          <button class="lib-btns__btn js-queue-btn" type="button">
-            QUEUE
-          </button>
+          <button class="lib-btns__btn js-queue-btn active" type="button">QUEUE</button>
         </li>
       </ul>
     </div>

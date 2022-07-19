@@ -23,10 +23,13 @@
     "basiclightbox": "^5.0.4",
     "firebase": "^9.9.0",
     "firebaseui": "^6.0.1",
+    "install": "^0.13.0",
     "lodash.chunk": "^4.2.0",
     "lodash.throttle": "^4.1.1",
+    "materialize-css": "^1.0.0-rc.2",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
+    "npm": "^8.14.0",
     "parcel-transformer-hbs": "^1.0.4",
     "tui-pagination": "^3.4.1"
   },

@@ -142,10 +142,12 @@
 }
 .nav {
   margin-left: auto;
+  background-color: transparent;
 }
 
 .nav__list {
   display: flex;
+  align-items: baseline;
 }
 
 .nav__item {
@@ -293,4 +295,15 @@
 
 .lib-btns__item:not(:last-child) {
   margin-right: 15px;
+}
+
+/* .modal {
+  
+  
+  max-width: 400px;
+} */
+.modal {
+  max-width: 400px !important ;
+  max-height: 350px !important ;
+  overflow: hidden;
 }
