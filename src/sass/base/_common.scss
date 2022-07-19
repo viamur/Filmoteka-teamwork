@@ -1,0 +1,22 @@
+body {
+  height: 100vh;
+  font-family: 'Roboto Medium', sans-serif;
+  font-size: 12px;
+  background-color: var(--bg-color-white);
+  color: var(--text-color-black);
+  line-height: 1.33;
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto;
+}

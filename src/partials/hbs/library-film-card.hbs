@@ -1,0 +1,34 @@
+{{#each this}}
+  <li class='library__item movie card-item' id='{{this.id}}'>
+    <a href='#' class='movie__link'>
+      <img
+        class='movie__img'
+        {{#if this.poster_path}}
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
+        {{else}}
+        src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
+        {{/if}}
+                {{#if this.screen.mob}}
+        width="280"
+        height="398"
+        {{/if}}{{#if this.screen.tab}}
+        width="336"
+        height="455"
+        {{/if}}
+        {{#if this.screen.desc}}
+        width="395"
+        height="574"
+        {{/if}}
+        alt='{{this.title}}'
+      />
+
+      <h3 class='movie__name'>{{this.title}}</h3>
+      <div class='movie__tag'>
+        <p class='movie__category'>{{this.genre}}
+          |
+          {{this.year}}</p>
+        <span class='movie__rate'>{{this.vote_average}}</span>
+      </div>
+    </a>
+  </li>
+{{/each}}

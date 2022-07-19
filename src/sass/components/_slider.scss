@@ -1,0 +1,114 @@
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
+.slider__wrapper {
+  @include mq(no-desk) {
+    display: none;
+  }
+}
+.slider__wrapper {
+  // background-color: rgb(247, 247, 247);
+  padding-bottom: 20px;
+  font-size: 13px;
+
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.slider__card {
+  margin-right: 8px;
+}
+
+.slider__title {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+
+  color: #e7e2e2;
+  font-family: 'Roboto Medium', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 2;
+  text-transform: uppercase;
+
+  text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77, 0, 38, 0.5), 3px 0 3px #ff002b,
+    5px 0 3px #800015, 6px 2px 3px rgba(77, 0, 13, 0.5), 6px 0 9px #ff5500, 8px 0 9px #802a00,
+    9px 2px 9px rgba(77, 25, 0, 0.5), 9px 0 18px #ffd500, 11px 0 18px #806a00,
+    12px 2px 18px rgba(77, 66, 0, 0.5), 12px 0 30px #d4ff00, 14px 0 30px #6a8000,
+    15px 2px 30px rgba(64, 77, 0, 0.5), 15px 0 45px #80ff00, 17px 0 45px #408000,
+    17px 2px 45px rgba(38, 77, 0, 0.5), -11px -13px 0px rgba(206, 26, 10, 0);
+}
+
+.thumb {
+  margin-top: 20px;
+  position: relative;
+}
+
+.slider__image {
+  border-radius: 5px;
+}
+
+.slider__rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 18px;
+  font-family: 'Roboto Medium', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.1;
+  color: var(--text-color-white);
+  background-color: #950b16;
+  border-radius: 5px;
+}
+
+// from trailler
+
+.slider__card .btn-youtube-slider {
+  width: 100px;
+}
+
+.slider__card .overlay-btn-youtube-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 19px;
+  width: 70px;
+
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
+  border-radius: 5px;
+  top: 5px;
+  left: 75px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(-63%);
+  transition: all 400ms ease-in;
+}
+
+.slider__card:hover .overlay-btn-youtube-text {
+  display: flex;
+  opacity: 1;
+  transform: translateX(-63%);
+}
+
+.btn-youtube-text-slider {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #950b16;
+  cursor: pointer;
+  margin: 0;
+  z-index: 5;
+}
