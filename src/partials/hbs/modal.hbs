@@ -7,6 +7,17 @@
         {{else}}
         src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
         {{/if}}
+                 {{#if this.screen.mob}}
+        width="240"
+        height="357"
+        {{/if}}{{#if this.screen.tab}}
+        width="264"
+        height="373"
+        {{/if}}
+        {{#if this.screen.desc}}
+        width="375"
+        height="478"
+        {{/if}}
     alt='{{title}}' class='modal__img' />
     <div class='modal__info'>
       <h2 class='modal__title'>{{title}}</h2>

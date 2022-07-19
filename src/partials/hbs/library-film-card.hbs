@@ -8,6 +8,17 @@
         {{else}}
         src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
         {{/if}}
+                {{#if this.screen.mob}}
+        width="280"
+        height="398"
+        {{/if}}{{#if this.screen.tab}}
+        width="336"
+        height="455"
+        {{/if}}
+        {{#if this.screen.desc}}
+        width="395"
+        height="574"
+        {{/if}}
         alt='{{this.title}}'
       />
 
