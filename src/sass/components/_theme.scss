@@ -5,14 +5,7 @@
 header.dark-theme {
   box-shadow: 10px 5px 55px red;
 }
-footer.light-theme {
-  background-color: var(--grey-bg-color);
-}
 
-footer.dark-theme {
-  background-color: rgb(31, 33, 33);
-  color: #d3d3d4;
-}
 
 .theme-switch__icon {
   background-image: url(../images/svg/sun.png);
