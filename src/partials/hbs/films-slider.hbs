@@ -11,10 +11,11 @@
     <div class='thumb'>
       <img
         class='slider__image'
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        src='https://image.tmdb.org/t/p/w200{{poster_path}}'
         alt='{{title}} {{name}}'
         data-id='{{id}}'
         onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
+        loading='lazy'
       />
       <span class='slider__rating'>{{vote_average}}</span>
     </div>
