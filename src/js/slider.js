@@ -21,11 +21,18 @@ function GetTopViewsRender() {
   return fetch(url)
     .then(response => response.json())
     .then(({ results }) => {
-      return results;
+      const newRes = results.map(obj => {
+        const vote = obj.vote_average.toString().slice(0, 3);
+        return {
+          ...obj,
+          vote,
+        };
+      });
+      return newRes;
     })
     .then(renderSlider)
     .catch(err => {
-      sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${error}" />`;
+      sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${err}" />`;
     });
 }
 
