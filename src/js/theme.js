@@ -5,9 +5,9 @@ const Theme = {
 
 const checkBox = document.querySelector('.theme-switch__toggle');
 checkBox.addEventListener('change', onCheked);
-footer = document.querySelector('.footer');
-header = document.querySelector('.header');
-modal = document.querySelector('.modal');
+const footer = document.querySelector('.footer');
+const header = document.querySelector('.header');
+const modal = document.querySelector('.modal');
 console.log(modal);
 function chekLocalstorage() {
   if (localStorage.getItem('cheked') === 'true') {
