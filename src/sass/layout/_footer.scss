@@ -65,3 +65,12 @@
     font-weight: 600;
   }
 }
+body.dark-theme {
+  & .footer__button_underline {
+    color: white;
+    background-color: rgb(28, 27, 27);
+  }
+  & .footer {
+    background-color: rgb(37, 35, 35);
+  }
+}

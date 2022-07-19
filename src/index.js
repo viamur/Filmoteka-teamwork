@@ -17,6 +17,7 @@ import './js/back-to-top';
 import './js/home-library-btns';
 import { onClickHomeBtn, onClickWatchedBtn, onClickQueuedBtn } from './js/home-library-btns';
 import { searchTrand } from './js/pagination';
+import './js/theme';
 
 // window.onload = () => {
 if (

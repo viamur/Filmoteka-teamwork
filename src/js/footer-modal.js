@@ -40,7 +40,7 @@ function onEscKeyPress(event) {
 
 // Team
 
-galleryItems = [
+const galleryItems = [
   {
     preview:
       'https://ca.slack-edge.com/T032KVART1A-U03B76QA2MU-8a3f2c4fd17d-512',
