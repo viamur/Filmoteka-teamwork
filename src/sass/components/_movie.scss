@@ -74,7 +74,7 @@ main {
     object-fit: cover;
     width: 100%;
     max-height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 17px;
     border-radius: 5px;
     transform: scale(1);
     transition: transform var(--transition-movie), box-shadow var(--transition-movie);
@@ -85,11 +85,10 @@ main {
     }
     @include mq(tab) {
       max-height: 455px;
-      margin-bottom: 8px;
     }
     @include mq(desk) {
       max-height: 574px;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
   }
 

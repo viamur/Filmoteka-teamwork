@@ -20,6 +20,8 @@ const genreObj = api
     return newObj;
   });
 
+/* Записуем в переменную расширение экрана */
+const windowWidth = window.innerWidth;
 /* конвертируем данные и возвращаем промис с новыми данными для ТРЕНДА */
 const newDataTrand = async () => {
   Loading.circle();
@@ -28,8 +30,30 @@ const newDataTrand = async () => {
     const year = obj.release_date.split('-').slice(0, 1).join('');
 
     const newRespons = await genreObj;
-
     let genre;
+    let screen;
+
+    if (windowWidth < 768) {
+      screen = {
+        mob: true,
+        tab: false,
+        desc: false,
+      };
+    }
+    if (windowWidth >= 768 && windowWidth < 1280) {
+      screen = {
+        mob: false,
+        tab: true,
+        desc: false,
+      };
+    }
+    if (windowWidth >= 1280) {
+      screen = {
+        mob: false,
+        tab: false,
+        desc: true,
+      };
+    }
 
     if (obj.genre_ids.length === 0) {
       genre = ['No genres'];
@@ -49,6 +73,7 @@ const newDataTrand = async () => {
       ...obj,
       year,
       genre,
+      screen,
     };
   });
   Loading.remove();
@@ -66,6 +91,30 @@ const newDataSearch = async () => {
     const newRespons = await genreObj;
     let genre;
 
+    let screen;
+
+    if (windowWidth < 768) {
+      screen = {
+        mob: true,
+        tab: false,
+        desc: false,
+      };
+    }
+    if (windowWidth >= 768 && windowWidth < 1280) {
+      screen = {
+        mob: false,
+        tab: true,
+        desc: false,
+      };
+    }
+    if (windowWidth >= 1280) {
+      screen = {
+        mob: false,
+        tab: false,
+        desc: true,
+      };
+    }
+
     if (obj.genre_ids.length === 0) {
       genre = ['No genres'];
     } else if (obj.genre_ids.length <= 2) {
@@ -83,6 +132,7 @@ const newDataSearch = async () => {
       ...obj,
       year,
       genre,
+      screen,
     };
   });
   Loading.remove();
@@ -96,6 +146,30 @@ const newDataId = async () => {
   const genres = respons.genres.map(obj => obj.name);
 
   let genre;
+
+  let screen;
+
+  if (windowWidth < 768) {
+    screen = {
+      mob: true,
+      tab: false,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 768 && windowWidth < 1280) {
+    screen = {
+      mob: false,
+      tab: true,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 1280) {
+    screen = {
+      mob: false,
+      tab: false,
+      desc: true,
+    };
+  }
 
   if (genres.length === 0) {
     genre = 'No genres';
@@ -111,6 +185,7 @@ const newDataId = async () => {
     ...respons,
     genre,
     year,
+    screen,
   };
   Loading.remove();
   return newArr;
