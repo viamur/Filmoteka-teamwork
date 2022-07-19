@@ -7,23 +7,41 @@
         </svg>
         <span class="header__title">Filmoteka</span>
       </a>
+      <!-- NAVBAR -->
       <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item active">
+        <ul id="nav-mobile" class="right nav__list">
+          <li class="nav__item logged-in visually-hidden" style="display: none">
             <button
-              class="nav__btn active js-nav-btn js-home-btn"
+              class="nav__btn modal-trigger nav__btn--none"
+              data-target="modal-account"
               type="button"
             >
-              HOME
+              Account
             </button>
           </li>
-          <li class="nav__item">
-            <button class="nav__btn js-nav-btn js-library-btn" type="button">
-              MY LIBRARY
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn" id="logout" type="button">Logout</button>
+          </li>
+          <li class="nav__item active">
+            <button class="nav__btn active js-nav-btn js-home-btn" type="button">HOME</button>
+          </li>
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn js-nav-btn js-library-btn" type="button">MY LIBRARY</button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-login" type="button">
+              Login
+            </button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-signup" type="button">
+              Sign up
             </button>
           </li>
         </ul>
       </nav>
+
+      <!-- GUIDE LIST -->
     </div>
     <form class="search__form js-search-form" autocomplete="off">
       <input
@@ -44,18 +62,15 @@
     <div class="lib-btns js-library-btns visually-hidden">
       <ul class="lib-btns__list">
         <li class="lib-btns__item">
-          <button class="lib-btns__btn js-watched-btn" type="button">
-            WATCHED
-          </button>
+          <button class="lib-btns__btn js-watched-btn active" type="button">WATCHED</button>
         </li>
         <li class="lib-btns__item">
-          <button class="lib-btns__btn js-queue-btn" type="button">
-            QUEUE
-          </button>
+          <button class="lib-btns__btn js-queue-btn active" type="button">QUEUE</button>
         </li>
       </ul>
     </div>
   </div>
+
   <div class="container">
     <div class="theme-switch">
       <div class="theme-switch__control">
@@ -66,11 +81,7 @@
           id="theme-switch-toggle"
           aria-label="Переключить между тёмной и светлой темой"
         />
-        <label
-          aria-hidden="true"
-          class="theme-switch__track"
-          for="theme-switch-toggle"
-        >
+        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
           <svg class="theme-switch__icon" aria-label="Иконка солнца">
             <use href="#"></use>
           </svg>

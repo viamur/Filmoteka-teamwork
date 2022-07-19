@@ -1,5 +1,5 @@
-// @import '../utils/variables';
-.modal {
+@import '../utils/variables';
+.modalA {
   background-color: var(--bg-color-white);
   padding: 48px 20px 40px 20px;
   position: relative;
@@ -14,6 +14,8 @@
 
     padding: 40px 12px;
   }
+}
+.modal {
   &__btn {
     display: flex;
     justify-content: center;
@@ -195,15 +197,15 @@
   display: flex;
   justify-content: center;
 }
-body.dark-theme{
-  & .modal{
+body.dark-theme {
+  & .modal {
     background-color: black;
     box-shadow: 0px 0px 80px red;
   }
-  & .modal__item--num{
+  & .modal__item--num {
     color: black;
   }
-  & .modal__btn--close{
+  & .modal__btn--close {
     background-color: white;
     border-radius: 50%;
   }

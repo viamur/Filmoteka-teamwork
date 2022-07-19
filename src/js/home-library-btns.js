@@ -32,7 +32,6 @@ export function onClickHomeBtn(e) {
   refs.searchForm.addEventListener('submit', searchHandler);
   refs.queueBtn.classList.remove('active');
   refs.watchedBtn.classList.remove('active');
-
   tapHome();
   searchTrand();
 }
