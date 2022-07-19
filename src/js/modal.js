@@ -129,14 +129,21 @@ const onOpenModal = async e => {
 
   const watchBtnEl = backdropEl.querySelector('.js-modal-watched');
   const queueBtnEl = backdropEl.querySelector('.js-modal-queue');
-  checkedBtnWatched(itemElId, watchBtnEl);
-  checkedBtnQueue(itemElId, queueBtnEl);
+  const divModalBtn = backdropEl.querySelector('.modal__btn');
+  console.log(localStorage.getItem('auth'));
+  divModalBtn.classList.add('visually-hidden');
+  if (localStorage.getItem('auth') === 'true') {
+    divModalBtn.classList.remove('visually-hidden');
+    checkedBtnWatched(itemElId, watchBtnEl);
+    checkedBtnQueue(itemElId, queueBtnEl);
+    const onWatchBtn = e => actionBtnWatched(itemElId, e.target);
+    const onQueueBtn = e => actionBtnQueue(itemElId, e.target);
+    watchBtnEl.addEventListener('click', onWatchBtn);
+    queueBtnEl.addEventListener('click', onQueueBtn);
+  } else {
+    divModalBtn.classList.add('visually-hidden');
+  }
 
-  const onWatchBtn = e => actionBtnWatched(itemElId, e.target);
-  const onQueueBtn = e => actionBtnQueue(itemElId, e.target);
-
-  watchBtnEl.addEventListener('click', onWatchBtn);
-  queueBtnEl.addEventListener('click', onQueueBtn);
   closeFn();
 };
 listEl.addEventListener('click', onOpenModal);

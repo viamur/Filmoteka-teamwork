@@ -142,10 +142,12 @@
 }
 .nav {
   margin-left: auto;
+  background-color: transparent;
 }
 
 .nav__list {
   display: flex;
+  align-items: baseline;
 }
 
 .nav__item {
@@ -154,9 +156,13 @@
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 39px;
+  margin-right: 20px;
 
-  @include mq(tab-only) {
+  @include mq(mob) {
+    margin-right: 35px;
+  }
+
+  @include mq(tab) {
     margin-right: 40px;
   }
 }
@@ -293,4 +299,24 @@
 
 .lib-btns__item:not(:last-child) {
   margin-right: 15px;
+}
+
+/* .modal {
+  
+  
+  max-width: 400px;
+} */
+.modal {
+  max-width: 400px !important ;
+  max-height: 350px !important ;
+  overflow: hidden;
+}
+body.dark-theme {
+  & .modal {
+    background-color: black;
+    box-shadow: 0px 0px 80px red;
+  }
+  & #signup-bio {
+    color: white;
+  }
 }
