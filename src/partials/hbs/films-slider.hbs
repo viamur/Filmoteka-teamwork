@@ -10,11 +10,17 @@
     </div>
     <div class='thumb'>
       <img
-        class='slider__image'
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        class='lazyload slider__image'
+        data-sizes='auto'
+        src='https://image.tmdb.org/t/p/w200{{poster_path}}'
+        srcset='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+        data-srcset='https://image.tmdb.org/t/p/w200{{poster_path}} 200w,
+                      https://image.tmdb.org/t/p/w300{{poster_path}} 300w,
+                      https://image.tmdb.org/t/p/w400{{poster_path}} 400w,
+                      https://image.tmdb.org/t/p/w500{{poster_path}} 500w'
+        data-src='https://image.tmdb.org/t/p/w400{{poster_path}}'
         alt='{{title}} {{name}}'
         data-id='{{id}}'
-        onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
       />
       <span class='slider__rating'>{{vote_average}}</span>
     </div>

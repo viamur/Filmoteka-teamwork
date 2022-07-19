@@ -1,3 +1,5 @@
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import './js/modal';
 import './js/slider';
 import './js/trailer';
@@ -15,7 +17,11 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.standard();
 import './js/back-to-top';
 import './js/home-library-btns';
-import { onClickHomeBtn, onClickWatchedBtn, onClickQueuedBtn } from './js/home-library-btns';
+import {
+  onClickHomeBtn,
+  onClickWatchedBtn,
+  onClickQueuedBtn,
+} from './js/home-library-btns';
 import { searchTrand } from './js/pagination';
 
 // window.onload = () => {
@@ -26,10 +32,14 @@ if (
   /* функция, отрисовка главной страницы трендовые фильмы */
   // onClickHomeBtn();
   onClickHomeBtn();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE
+) {
   /* функиця, отрисовка вкладки QUEUE */
   onClickQueuedBtn();
-} else if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
+} else if (
+  workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED
+) {
   /* функция, отрисовки вкладки  WATCHED */
   onClickWatchedBtn();
 } else {

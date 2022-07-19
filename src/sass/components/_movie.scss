@@ -77,7 +77,10 @@ main {
     margin-bottom: 10px;
     border-radius: 5px;
     transform: scale(1);
-    transition: transform var(--transition-movie), box-shadow var(--transition-movie);
+    transition: opacity var(--transition-movie);
+    transition: transform var(--transition-movie),
+      box-shadow var(--transition-movie);
+    background-image: url(../images/No-Image-Placeholder.svg);
     .movie:hover &,
     .movie:focus & {
       transform: scale(1.03);

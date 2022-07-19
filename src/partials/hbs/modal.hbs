@@ -1,19 +1,23 @@
 <div class='modal'>
   <button type='button' class='modal__btn--close js-modal-close'></button>
   <div class='modal__wrap'>
-    <img 
-            {{#if poster_path}}
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        {{else}}
-        src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
-        {{/if}}
-    alt='{{title}}' class='modal__img' />
+    <img
+      class='modal__img lazyload'
+      data-sizes='auto'
+      data-srcset='https://image.tmdb.org/t/p/w200{{poster_path}} 200w,
+                      https://image.tmdb.org/t/p/w300{{poster_path}} 300w,
+                      https://image.tmdb.org/t/p/w400{{poster_path}} 400w,
+                      https://image.tmdb.org/t/p/w500{{poster_path}} 500w'
+      alt='{{title}}'
+    />
     <div class='modal__info'>
       <h2 class='modal__title'>{{title}}</h2>
       <ul class='modal__list'>
         <li class='modal__item'>
           <p class='modal__item--key'>Vote / Votes</p>
-          <p><span class='modal__item--vote'>{{vote_average}}</span><span class='modal__item--span'>
+          <p><span class='modal__item--vote'>{{vote_average}}</span><span
+              class='modal__item--span'
+            >
               /
             </span><span class='modal__item--num'>{{vote_count}}</span></p>
         </li>
@@ -26,23 +30,25 @@
           <p class='modal__item--desc'>{{original_title}}</p>
         </li>
 
-          {{#if genres}}
-        <li class='modal__item'>
-          <p class='modal__item--key'>Genre</p>
-          <p>
-            {{#each genres}}
-              {{#unless @last}} {{this.name}}, {{/unless}}
-              {{#if @last}} {{this.name}} {{/if}}
-            {{/each}}
+        {{#if genres}}
+          <li class='modal__item'>
+            <p class='modal__item--key'>Genre</p>
+            <p>
+              {{#each genres}}
+                {{#unless @last}} {{this.name}}, {{/unless}}
+                {{#if @last}} {{this.name}} {{/if}}
+              {{/each}}
             </p>
-        </li>
+          </li>
         {{/if}}
       </ul>
       <h3 class='modal__sub'>About</h3>
       <p class='modal__text'>{{overview}} </p>
       <div class='modal__btn'>
-        <button type='button' class='modal__btn--watched js-modal-watched'>add to Watched</button>
-        <button type='button' class='modal__btn--queue js-modal-queue'>add to queue</button>
+        <button type='button' class='modal__btn--watched js-modal-watched'>add
+          to Watched</button>
+        <button type='button' class='modal__btn--queue js-modal-queue'>add to
+          queue</button>
       </div>
     </div>
   </div>
