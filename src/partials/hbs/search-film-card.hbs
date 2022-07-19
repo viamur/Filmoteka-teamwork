@@ -5,16 +5,14 @@
         class='lazyload movie__img'
         data-sizes='auto'
         {{#if this.poster_path}}
-        
+        src='../images/1x1_img_placeholder.png'
         data-srcset='https://image.tmdb.org/t/p/w200{{this.poster_path}} 200w,
                       https://image.tmdb.org/t/p/w300{{this.poster_path}} 300w,
                       https://image.tmdb.org/t/p/w400{{this.poster_path}} 400w,
                       https://image.tmdb.org/t/p/w500{{this.poster_path}} 500w'
-        data-src='https://image.tmdb.org/t/p/w400{{this.poster_path}}'
         {{else}}
-        src='https://via.placeholder.com/395x574.jpg?text=NO+IMAGE'
+        src='../images/1x1_img_placeholder.png'
         {{/if}}
-        
       />
       <h3 class='movie__name'>{{this.title}}</h3>
       <div class='movie__tag'>
