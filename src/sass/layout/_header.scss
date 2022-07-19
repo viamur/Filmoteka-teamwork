@@ -280,10 +280,10 @@
   font-weight: 500;
 }
 
-// .lib-btns__btn.active {
-//   background-color: var(--accent-color-text);
-//   border: 1px solid var(--accent-color-text);
-// }
+.lib-btns__btn.active {
+  background-color: var(--accent-color-text);
+  border: 1px solid var(--accent-color-text);
+}
 
 .lib-btns__btn:hover,
 .lib-btns__btn:focus {
