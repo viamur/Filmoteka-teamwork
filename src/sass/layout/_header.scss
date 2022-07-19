@@ -307,8 +307,8 @@
   max-width: 400px;
 } */
 .modal {
-  max-width: 400px !important ;
-  max-height: 350px !important ;
+  max-width: 400px  ;
+  max-height: 350px  ;
   overflow: hidden;
 }
 body.dark-theme {
@@ -319,4 +319,16 @@ body.dark-theme {
   & #signup-bio {
     color: white;
   }
+     & #login-email {
+       color: white;
+     }
+     & #login-password{
+      color: white;
+     }
+     & .header{
+      box-shadow: 10px 10px 45px red;
+     }
+     & #login-form.btn{
+      background-color: var(--accent-color-text);
+     }
 }
