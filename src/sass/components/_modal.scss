@@ -203,4 +203,8 @@ body.dark-theme{
   & .modal__item--num{
     color: black;
   }
+  & .modal__btn--close{
+    background-color: white;
+    border-radius: 50%;
+  }
 }
