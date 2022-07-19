@@ -199,3 +199,20 @@ body.show-footer-modal .footer__modal {
     font-size: 14px;
   }
 }
+
+body.dark-theme {
+  & .footer__modal {
+    background-color: black;
+    box-shadow: 0px 0px 80px red;
+  }
+  & .gallery__item{
+    background-color: #3c3737;
+  }
+  & .gallery__title{
+    color: #fff;
+  }
+  & .footer__modal--button{
+    background-color: #3c3737;
+    border-radius: 5px;
+  }
+}

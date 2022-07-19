@@ -3,27 +3,37 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-const refs = {
-  switcher: document.querySelector('.theme-switch__toggle'),
-  body: document.body,
-};
-
-function changeTheme({ target: { checked } }) {
-  checked
-    ? toggleTheme(Theme.DARK, Theme.LIGHT)
-    : toggleTheme(Theme.LIGHT, Theme.DARK);
+const checkBox = document.querySelector('.theme-switch__toggle');
+checkBox.addEventListener('change', onCheked);
+footer = document.querySelector('.footer');
+header = document.querySelector('.header');
+modal = document.querySelector('.modal');
+console.log(modal);
+function chekLocalstorage() {
+  if (localStorage.getItem('cheked') === 'true') {
+    checkBox.checked = true;
+    document.body.classList.add('dark-theme');
+    footer.classList.add('dark-theme');
+  }
 }
+chekLocalstorage();
 
-function toggleTheme(add, rem) {
-  refs.body.classList.replace(rem, add);
-  localStorage.setItem('theme', add);
+function onCheked(event) {
+  if (checkBox.checked) {
+    header.classList.add('dark-theme');
+    document.body.classList.add('dark-theme');
+    footer.classList.add('dark-theme');
+    footer.classList.remove('light-theme');
+    localStorage.setItem('Theme', 'DARK');
+    localStorage.setItem('cheked', 'true');
+    checkBox.checked = true;
+    return;
+  }
+
+  document.body.classList.remove('dark-theme');
+  footer.classList.remove('dark-theme');
+  header.classList.remove('dark-theme');
+  footer.classList.add('light-theme');
+  localStorage.setItem('Theme', 'LIGHT');
+  localStorage.setItem('cheked', 'false');
 }
-
-(function () {
-  refs.switcher.addEventListener('change', changeTheme);
-
-  refs.body.classList.add(
-    localStorage.getItem('theme') ? localStorage.getItem('theme') : Theme.LIGHT
-  );
-  refs.switcher.checked = localStorage.getItem('theme') === Theme.DARK;
-})();

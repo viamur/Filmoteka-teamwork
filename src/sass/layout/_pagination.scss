@@ -80,3 +80,13 @@ width: 40px;
 .is-hidden{
     display: none;
 }
+
+body.dark-theme {
+    & .move-btn {
+        background-color: rgb(150, 137, 137);
+        
+    }
+   & .move-btn{
+    fill: white;
+   }
+}
