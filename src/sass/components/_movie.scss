@@ -1,16 +1,16 @@
-main {
+// main {
   /* Согласовать */
   /* display: flex;
   justify-content: center;
   background-color: var(--main-bg-color); */
-}
+// }
 
 .library {
   margin-left: auto;
   margin-right: auto;
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: var(--main-secion-color);
+  // background-color: var(--main-secion-color);
   @include mq(mob-only) {
     padding-top: 20px;
     padding-bottom: 40px;

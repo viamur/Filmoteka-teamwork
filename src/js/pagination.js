@@ -39,6 +39,7 @@ export async function searchInput(query) {
   pagination.on('afterMove', event => {
     const currentPage = event.page;
     fetchPerPageSearch(currentPage);
+    console.log(api.page);
   });
   await fetchPerPageSearch(1);
 
