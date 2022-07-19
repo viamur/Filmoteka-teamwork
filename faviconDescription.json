@@ -1,0 +1,68 @@
+{
+  "masterPicture": "TODO: ./src/images/favicon/master_picture.png",
+  "iconsPath": "/",
+  "design": {
+    "ios": {
+      "pictureAspect": "backgroundAndMargin",
+      "backgroundColor": "#000000",
+      "margin": "14%",
+      "assets": {
+        "ios6AndPriorIcons": false,
+        "ios7AndLaterIcons": false,
+        "precomposedIcons": false,
+        "declareOnlyDefaultIcon": true
+      },
+      "appName": "Filmoteka"
+    },
+    "desktopBrowser": {
+      "design": "background",
+      "backgroundColor": "#333333",
+      "backgroundRadius": 0.25,
+      "imageScale": 0.9
+    },
+    "windows": {
+      "pictureAspect": "noChange",
+      "backgroundColor": "#000000",
+      "onConflict": "override",
+      "assets": {
+        "windows80Ie10Tile": false,
+        "windows10Ie11EdgeTiles": {
+          "small": true,
+          "medium": true,
+          "big": true,
+          "rectangle": true
+        }
+      },
+      "appName": "Filmoteka"
+    },
+    "androidChrome": {
+      "pictureAspect": "backgroundAndMargin",
+      "margin": "10%",
+      "backgroundColor": "#000000",
+      "themeColor": "#000000",
+      "manifest": {
+        "name": "Filmoteka",
+        "display": "standalone",
+        "orientation": "notSet",
+        "onConflict": "override",
+        "declared": true
+      },
+      "assets": {
+        "legacyIcon": false,
+        "lowResolutionIcons": false
+      }
+    },
+    "safariPinnedTab": {
+      "pictureAspect": "silhouette",
+      "themeColor": "#3f3f3f"
+    }
+  },
+  "settings": {
+    "compression": 2,
+    "scalingAlgorithm": "Mitchell",
+    "errorOnImageTooSmall": false,
+    "readmeFile": true,
+    "htmlCodeFile": true,
+    "usePathAsIs": false
+  }
+}
