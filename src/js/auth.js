@@ -1,3 +1,5 @@
+import { onClickHomeBtn } from './home-library-btns';
+
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
   if (user) {
@@ -36,6 +38,7 @@ signupForm.addEventListener('submit', e => {
       const modal = document.querySelector('#modal-signup');
       M.Modal.getInstance(modal).close();
       signupForm.reset();
+      localStorage.setItem('auth', 'true');
     });
 });
 
@@ -44,6 +47,8 @@ const logout = document.querySelector('#logout');
 logout.addEventListener('click', e => {
   e.preventDefault();
   auth.signOut();
+  onClickHomeBtn();
+  localStorage.setItem('auth', 'false');
 });
 
 // login
@@ -61,5 +66,6 @@ loginForm.addEventListener('submit', e => {
     const modal = document.querySelector('#modal-login');
     M.Modal.getInstance(modal).close();
     loginForm.reset();
+    localStorage.setItem('auth', 'true');
   });
 });

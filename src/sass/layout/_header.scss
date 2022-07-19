@@ -156,9 +156,13 @@
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 39px;
+  margin-right: 20px;
 
-  @include mq(tab-only) {
+  @include mq(mob) {
+    margin-right: 35px;
+  }
+
+  @include mq(tab) {
     margin-right: 40px;
   }
 }
