@@ -96,9 +96,32 @@ const actionBtnQueue = (id, btn) => {
 const onOpenModal = async e => {
   if (e.target.nodeName === 'UL') return;
   e.preventDefault();
+  const windowWidth = window.innerWidth;
   const itemElId = e.target.closest('li').id;
   api.id = itemElId;
   const data = await newDataId();
+
+  if (windowWidth < 768) {
+    data.screen = {
+      mob: true,
+      tab: false,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 768 && windowWidth < 1280) {
+    data.screen = {
+      mob: false,
+      tab: true,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 1280) {
+    data.screen = {
+      mob: false,
+      tab: false,
+      desc: true,
+    };
+  }
 
   backdropEl.innerHTML = makeModal(data);
   backdropEl.classList.remove('is-hidden');

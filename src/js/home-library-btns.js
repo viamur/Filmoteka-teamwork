@@ -1,14 +1,5 @@
-import {
-  renderWatchedList,
-  rederTrandList,
-  renderQueueList,
-} from './render-list';
-import {
-  searchInput,
-  searchQueue,
-  searchWatched,
-  searchTrand,
-} from './pagination';
+import { renderWatchedList, rederTrandList, renderQueueList } from './render-list';
+import { searchInput, searchQueue, searchWatched, searchTrand } from './pagination';
 
 const refs = {
   homeBtn: document.querySelector('.js-home-btn'),
@@ -23,6 +14,7 @@ const refs = {
   h2: document.querySelector('.library__title'),
   span: document.querySelector('.library__span'),
   pagination: document.querySelector('.tui-pagination'),
+  errSpan: document.querySelector('.js-search-warn'),
 };
 
 refs.homeBtn.addEventListener('click', onClickHomeBtn);
@@ -86,8 +78,10 @@ function tapibrary() {
   refs.searchForm.removeEventListener('submit', searchHandler);
   refs.h2.classList.add('visually-hidden');
   refs.pagination.classList.add('is-hidden');
+  refs.errSpan.classList.add('visually-hidden');
 }
 function tapHome() {
+  refs.errSpan.classList.add('visually-hidden');
   refs.header.classList.remove('js-library');
   refs.homeBtn.classList.add('active');
   refs.libraryBtn.classList.remove('active');
