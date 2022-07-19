@@ -331,4 +331,11 @@ body.dark-theme {
      & #login-form.btn{
       background-color: var(--accent-color-text);
      }
+         & #signup-email {
+           color: white;
+         }
+    
+         & #signup-password {
+           color: white;
+         }
 }
