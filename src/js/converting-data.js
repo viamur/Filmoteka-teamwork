@@ -27,7 +27,7 @@ const newDataTrand = async () => {
   Loading.circle();
   const respons = await api.trandFetch();
   const newArr = respons.results.map(async obj => {
-    const year = obj.release_date.split('-').slice(0, 1).join('');
+    const year = obj.release_date?.split('-').slice(0, 1).join('') || '';
 
     const newRespons = await genreObj;
     let genre;
@@ -86,7 +86,7 @@ const newDataSearch = async () => {
   const respons = await api.searchFetch();
 
   const newArr = respons.results.map(async obj => {
-    const year = obj.release_date.split('-').slice(0, 1).join('');
+    const year = obj.release_date?.split('-').slice(0, 1).join('') || '';
 
     const newRespons = await genreObj;
     let genre;
@@ -142,7 +142,7 @@ const newDataSearch = async () => {
 const newDataId = async () => {
   Loading.circle();
   const respons = await api.idFetch();
-  const year = respons.release_date.split('-').slice(0, 1).join('');
+  const year = respons.release_date?.split('-').slice(0, 1).join('') || '';
   const genres = respons.genres.map(obj => obj.name);
 
   let genre;

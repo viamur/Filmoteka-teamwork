@@ -15,6 +15,7 @@ const pageOne = () => {
 /* Рендер карточек ТРЕНДОВЫХ */
 const rederTrandList = () => {
   listEl.innerHTML = '';
+  container.classList.add('is-hidden');
   workLocStorage.setUserLocationPage(workLocStorage.VALUE_HOME);
   return newDataTrand().then(data => {
     listEl.innerHTML = makeSearchGallery(data);
@@ -32,8 +33,8 @@ const renderSearchList = query => {
     const errSpan = document.querySelector('.js-search-warn');
     errSpan.classList.add('visually-hidden');
 
-    swapPaginator(data, 19);
     listEl.innerHTML = makeSearchGallery(data);
+    swapPaginator(data, 19);
     if (data.length === 0) {
       errSpan.classList.remove('visually-hidden');
       renderNoFound();
