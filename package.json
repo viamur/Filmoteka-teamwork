@@ -23,6 +23,8 @@
     "basiclightbox": "^5.0.4",
     "firebase": "^9.9.0",
     "firebaseui": "^6.0.1",
+    "lodash.chunk": "^4.2.0",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "parcel-transformer-hbs": "^1.0.4",

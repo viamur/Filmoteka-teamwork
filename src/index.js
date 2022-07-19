@@ -39,4 +39,5 @@ if (
   </li>`;
   console.log('Ошибка в index.js, по поиску где находился user');
 }
+// };
 window.onload = Loading.remove();

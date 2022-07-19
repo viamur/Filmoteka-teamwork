@@ -63,6 +63,9 @@ const actionBtnWatched = (id, btn) => {
     return;
   }
   if (action === 'del') {
+    if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_WATCHED) {
+      listEl.querySelector(`[id = '${id}']`).remove();
+    }
     workLocStorage.delUserWatched(id);
     btn.dataset.action = 'add';
     btn.classList.remove('active');
@@ -80,6 +83,9 @@ const actionBtnQueue = (id, btn) => {
     return;
   }
   if (action === 'del') {
+    if (workLocStorage.getUserLocationPage() === workLocStorage.VALUE_QUEUE) {
+      listEl.querySelector(`[id = '${id}']`).remove();
+    }
     workLocStorage.delUserQUEUE(id);
     btn.dataset.action = 'add';
     btn.classList.remove('active');
@@ -90,9 +96,32 @@ const actionBtnQueue = (id, btn) => {
 const onOpenModal = async e => {
   if (e.target.nodeName === 'UL') return;
   e.preventDefault();
+  const windowWidth = window.innerWidth;
   const itemElId = e.target.closest('li').id;
   api.id = itemElId;
   const data = await newDataId();
+
+  if (windowWidth < 768) {
+    data.screen = {
+      mob: true,
+      tab: false,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 768 && windowWidth < 1280) {
+    data.screen = {
+      mob: false,
+      tab: true,
+      desc: false,
+    };
+  }
+  if (windowWidth >= 1280) {
+    data.screen = {
+      mob: false,
+      tab: false,
+      desc: true,
+    };
+  }
 
   backdropEl.innerHTML = makeModal(data);
   backdropEl.classList.remove('is-hidden');
