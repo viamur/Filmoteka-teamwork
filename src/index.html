@@ -23,7 +23,7 @@
 
   <body>
     <!-- <header> -->
-    <include src="./partials/html/firebase.html"></include>
+
     <include src="./partials/html/header.html"></include>
     <include src="./partials/html/slider.html"></include>
     <!-- </header> -->
@@ -38,5 +38,33 @@
     <include src="./partials/html/modal-film.html"></include>
     <!-- </footer> -->
     <script type="module" src="./index.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: 'AIzaSyCQJz2vOBbe5EiJc3t4fitywdYVLNeFXIs',
+        authDomain: 'filmotekanew-2fb4d.firebaseapp.com',
+        projectId: 'filmotekanew-2fb4d',
+        storageBucket: 'filmotekanew-2fb4d.appspot.com',
+        messagingSenderId: '26802429231',
+        appId: '1:26802429231:web:2077e86ecbb42fc16595da',
+        measurementId: 'G-B2L28LWY5L',
+      };
+      firebase.initializeApp(config);
+
+      // make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/firebase.js"></script>
   </body>
 </html>

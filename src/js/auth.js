@@ -1,31 +1,65 @@
-/* import firebase from 'firebase/compat/app';
-import * as firebaseui from 'firebaseui';
-import 'firebaseui/dist/firebaseui.css'; */
+// listen for auth status changes
+auth.onAuthStateChanged(user => {
+  if (user) {
+    db.collection('guides').onSnapshot(
+      snapshot => {
+        setupGuides(snapshot.docs);
+        setupUI(user);
+      },
+      err => console.log(err.message)
+    );
+  } else {
+    setupUI();
+    setupGuides([]);
+  }
+});
 
-// 1) Create a new firebaseui.auth instance stored to our local variable ui
-const ui = new firebaseui.auth.AuthUI(firebase.auth());
+// signup
+const signupForm = document.querySelector('#signup-form');
+signupForm.addEventListener('submit', e => {
+  e.preventDefault();
 
-// 2) These are our configurations.
-const uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult(authResult, redirectUrl) {
-      return true;
-    },
-    uiShown() {
-      document.getElementById('loader').style.display = 'block';
-    },
-  },
-  signInFlow: 'popup',
-  signInSuccessUrl: 'signedIn',
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-    // Additional login options should be listed here
-    // once they are enabled within the console.
-  ],
-};
+  // get user info
+  const email = signupForm['signup-email'].value;
+  const password = signupForm['signup-password'].value;
 
-// 3) Call the 'start' method on our ui class
-// including our configuration options.
-ui.start('#firebaseui-auth-container', uiConfig);
+  // sign up the user & add firestore data
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then(cred => {
+      return db.collection('users').doc(cred.user.uid).set({
+        bio: signupForm['signup-bio'].value,
+      });
+    })
+    .then(() => {
+      // close the signup modal & reset form
+      const modal = document.querySelector('#modal-signup');
+      M.Modal.getInstance(modal).close();
+      signupForm.reset();
+    });
+});
+
+// logout
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', e => {
+  e.preventDefault();
+  auth.signOut();
+});
+
+// login
+const loginForm = document.querySelector('#login-form');
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  // get user info
+  const email = loginForm['login-email'].value;
+  const password = loginForm['login-password'].value;
+
+  // log the user in
+  auth.signInWithEmailAndPassword(email, password).then(cred => {
+    // close the signup modal & reset form
+    const modal = document.querySelector('#modal-login');
+    M.Modal.getInstance(modal).close();
+    loginForm.reset();
+  });
+});
