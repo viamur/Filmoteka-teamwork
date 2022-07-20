@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmoteka</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/index.b07a87f3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    <link rel="icon" type="image/svg+xml" href="/safari-pinned-tab.db28b65c.svg">
+    <link rel="shortcut icon" type="image/png" href="/favicon.b9f0449c.ico">
+    <script src="/index.975ef6c8.js" defer=""></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- <header> -->
+      <header class="header js-header">
+  <div class="container">
+    <div class="navigation-wrapper">
+      <a class="header__link" href="/index.html">
+        <svg class="header__logo" width="24" height="24">
+          <use href="/symbol-defs.31a6e949.svg#icon-film"></use>
+        </svg>
+        <span class="header__title">Filmoteka</span>
+      </a>
+      <!-- NAVBAR -->
+      <nav class="nav">
+        <ul id="nav-mobile" class="right nav__list">
+          <li class="nav__item logged-in visually-hidden" style="display: none">
+            <button class="nav__btn modal-trigger nav__btn--none" data-target="modal-account" type="button">
+              Account
+            </button>
+          </li>
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn" id="logout" type="button">Logout</button>
+          </li>
+          <li class="nav__item active">
+            <button class="nav__btn active js-nav-btn js-home-btn" type="button">HOME</button>
+          </li>
+          <li class="nav__item logged-in" style="display: none">
+            <button class="nav__btn js-nav-btn js-library-btn" type="button">MY LIBRARY</button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-login" type="button">
+              Login
+            </button>
+          </li>
+          <li class="nav__item logged-out" style="display: none">
+            <button class="nav__btn modal-trigger" data-target="modal-signup" type="button">
+              Sign up
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- GUIDE LIST -->
+    </div>
+    <form class="search__form js-search-form" autocomplete="off">
+      <input class="search__input js-search-input" type="text" name="searchQuery" placeholder="Movie search">
+      <button class="search__btn js-search-btn" type="submit">
+        <svg class="search__icon" width="12" height="12">
+          <use href="/symbol-defs.31a6e949.svg#icon-search"></use>
+        </svg>
+      </button>
+      <p class="search__warn js-search-warn visually-hidden">
+        Search result not successful. Enter the correct movie name
+      </p>
+    </form>
+    <div class="lib-btns js-library-btns visually-hidden">
+      <ul class="lib-btns__list">
+        <li class="lib-btns__item">
+          <button class="lib-btns__btn js-watched-btn active" type="button">WATCHED</button>
+        </li>
+        <li class="lib-btns__item">
+          <button class="lib-btns__btn js-queue-btn active" type="button">QUEUE</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="theme-switch">
+      <div class="theme-switch__control">
+        <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой">
+        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+          <svg class="theme-switch__icon" aria-label="Иконка солнца">
+            <use href="#"></use>
+          </svg>
+          <svg class="theme-switch__icon-moon" aria-label="Иконка луны">
+            <use href="#"></use>
+          </svg>
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="slider__wrapper">
+  <section class="container">
+    <h2 class="slider__title visually-hidden">TOP WIEVS</h2>
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides js-slider-container">
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+          <li class="glide__slide"></li>
+        </ul>
+      </div>
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track"></div>
+
+        <div class="glide__bullets" data-glide-el="controls[>]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+          <button class="glide__bullet" data-glide-dir="=2"></button>
+          <button class="glide__bullet" data-glide-dir="=3"></button>
+          <button class="glide__bullet" data-glide-dir="=4"></button>
+          <button class="glide__bullet" data-glide-dir="=5"></button>
+          <button class="glide__bullet" data-glide-dir="=6"></button>
+          <button class="glide__bullet" data-glide-dir="=7"></button>
+          <button class="glide__bullet" data-glide-dir="=8"></button>
+          <button class="glide__bullet" data-glide-dir="=9"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+      <!-- </header> -->
+      <main>
+        <section class="library">
+  <div class="container">
+    <h2 class="library__title visually-hidden">Search results "<span class="library__span"></span>"</h2>
+    <ul class="library__list card-set js-list">
+      <!-- Залить hbs -->
+    </ul>
+    <div id="tui-pagination-container" class="tui-pagination is-hidden"></div>
+  </div>
+</section>
+        <a href="#" class="back-to-top"></a>
+
+      </main>
+
+      <!-- </footer> -->
+    </div>
+
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4>
+        <br>
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required="">
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required="">
+            <label for="signup-password">Choose password</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="signup-bio" required="">
+            <label for="signup-bio">One Line Bio</label>
+          </div>
+          <button class="btn z-depth-4" style="background: #ff6b08">
+            Sign up
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4>
+        <br>
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required="">
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required="">
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn z-depth-2" style="background: #ff6b08">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4>
+        <br>
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!-- <footer> -->
+    <footer class="footer">
+  <div class="container footer__desk">
+    <p class="footer__paragraph copyright">
+      <span class="footer__copyright">&copy; 2020</span><span class="footer__copyright">All Rights Reserved</span>
+    </p>
+
+    <div class="footer__devby">
+      <span>Developed with</span>
+      <img src="/heart.16ce21f9.svg" alt="Orange heart" width="14" height="12" class="footer__image">
+      <span>by</span>
+      <button type="button" class="footer__button" data-action="open-footer-modal">
+        <span class="footer__button_underline">GoIT Students</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+
+    <div class="footer__backdrop js-footer-backdrop" style="display: none">
+  <div class="footer__modal">
+    <div class="footer__modal--header">
+      <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/ee83745f-1130-3777-bb99-b0977ad16a6e.png" alt="School logo" height="20" width="auto" class="footer__modal--img">
+      <h2 class="footer__modal--title">Students</h2>
+    </div>
+    <!--  Team -->
+    <div class="gallery"></div>
+
+    <button type="button" class="footer__modal--button" data-action="close-footer-modal">
+      Close
+    </button>
+  </div>
+</div>
+
+    <div class="backdropA is-hidden" data-modal="">
+
+</div>
+    <!-- </footer> -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+    <script>// Initialize Firebase
+const config = {
+    apiKey: "AIzaSyCQJz2vOBbe5EiJc3t4fitywdYVLNeFXIs",
+    authDomain: "filmotekanew-2fb4d.firebaseapp.com",
+    projectId: "filmotekanew-2fb4d",
+    storageBucket: "filmotekanew-2fb4d.appspot.com",
+    messagingSenderId: "26802429231",
+    appId: "1:26802429231:web:2077e86ecbb42fc16595da",
+    measurementId: "G-B2L28LWY5L"
+};
+firebase.initializeApp(config);
+// make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+// update firestore settings
+db.settings({
+    timestampsInSnapshots: true
+});
+
+</script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/index.43ba7149.js" defer=""></script>
+    <script src="/index.60d47bb7.js"></script>
+  </body>
+</html>
