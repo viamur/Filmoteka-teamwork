@@ -1,0 +1,28 @@
+.logo-box {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  border: 2px white;
+  border-radius: 2px;
+
+  .logo-thumb {
+    width: 24px;
+    height: 48px;
+  }
+  .vertical-column--left {
+    height: 48px;
+    width: 5px;
+  }
+  .vertical-column--right {
+    height: 48px;
+    width: 5px;
+  }
+  .vertical-column--central {
+    height: 48px;
+    width: 10;
+  }
+  .horizont-short {
+    height: 5px;
+    width: 5px;
+  }
+}
